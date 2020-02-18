@@ -4,7 +4,7 @@
 
     // fieldCoordinatesFn();
 
-    positionByFn();
+    // positionByFn();
 
 
     // functions
