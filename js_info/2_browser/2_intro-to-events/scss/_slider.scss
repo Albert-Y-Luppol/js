@@ -1,0 +1,53 @@
+.slider {
+    position: relative;
+    margin: 5rem auto;
+    padding: 10px 40px;
+    background-color: #EEEEEE;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 20px;
+    // width: 500px;
+    // height: 200px;
+    
+
+    &__wrapper{
+        position: absolute;
+        left: calc(4rem + 1px);
+        top: calc(1rem + 1px);
+        right: calc(4rem + 1px);
+        bottom: calc(1rem + 1px);
+        overflow: hidden;
+    }
+    &__arrow{
+        border-radius: 50%;
+        font-size: 20px;
+        transform: translate(0, -50%);
+        position: absolute;
+        z-index: 1;
+        height: 50px;
+        cursor: pointer;
+
+        &--left{
+            top: 50%;
+            left: 5px;
+        }
+
+        &--right{
+            top: 50%;
+            right: 5px;
+        }
+    }
+   
+    & ul {
+        font-size: 0;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-evenly;
+        list-style: none;
+        position: absolute;
+        top: 1rem;
+        width: fit-content;
+        left: 0px;
+        transition: all .5s ease-in-out;
+    }
+}
