@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Frames And Windows</title>
+</head>
+
+<body>
+    <h1>Receiving iframe:</h1>
+    <table id="messages" style="border: 1px solid black;">
+        <tr>
+            <th>#</th>
+            <th>Message Text</th>
+            <th>Message Origin</th>
+        </tr>
+    </table>
+    <script>
+
+        window.addEventListener('message', (e)=>{
+            // if(e.origin != 'http://127.0.0.1:5500') {
+            //     console.log('Ignored Message from ' + e.origin);
+            //     return;
+            // };
+
+            postMyMessage(e);
+        });
+
+
+        function postMyMessage(e){
+
+            let messagesBox = document.getElementById('messages');
+
+            let tr = document.createElement('tr');
+
+            tr.innerHTML = `
+                <td>${getMessageNumber()}</td>
+                <td>${e.data}</td>
+                <td>${e.origin}</td>
+            `;
+
+            messagesBox.append(tr);
+
+            e.source.postMessage('posted', "http://127.0.0.1:5500/js_info/3_other/1_frames_and_windows/index.html");
+        }
+
+
+        function getMessageNumber(){
+            return document.getElementById('messages').rows.length;
+        }
+
+    </script>
+
+</body>
+
+</html>
