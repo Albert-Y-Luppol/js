@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://javascript.info/article/indexeddb/books/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./javascript.info_files/idb.min.js.download"></script>
+
+</head><body cz-shortcut-listen="true"><button onclick="addBook()">Add a book</button>
+<button onclick="clearBooks()">Clear books</button>
+
+<p>Books list:</p>
+
+<ul id="listElem"><li>No books yet. Please add books.</li></ul>
+
+<script>
+let db;
+
+init();
+
+async function init() {
+  db = await idb.openDb('booksDb', 1, db => {
+    db.createObjectStore('books', {keyPath: 'name'});
+  });
+
+  list();
+}
+
+async function list() {
+  let tx = db.transaction('books');
+  let bookStore = tx.objectStore('books');
+
+  let books = await bookStore.getAll();
+
+  if (books.length) {
+    listElem.innerHTML = books.map(book => `<li>
+        name: ${book.name}, price: ${book.price}
+      </li>`).join('');
+  } else {
+    listElem.innerHTML = '<li>No books yet. Please add books.</li>'
+  }
+
+
+}
+
+async function clearBooks() {
+  let tx = db.transaction('books', 'readwrite');
+  await tx.objectStore('books').clear();
+  await list();
+}
+
+async function addBook() {
+  let name = prompt("Book name?");
+  let price = +prompt("Book price?");
+
+  let tx = db.transaction('books', 'readwrite');
+
+  try {
+    await tx.objectStore('books').add({name, price});
+    await list();
+  } catch(err) {
+    if (err.name == 'ConstraintError') {
+      alert("Such book exists already");
+      await addBook();
+    } else {
+      throw err;
+    }
+  }
+}
+
+window.addEventListener('unhandledrejection', event => {
+  alert("Error: " + event.reason.message);
+});
+
+</script>
+</body></html>
