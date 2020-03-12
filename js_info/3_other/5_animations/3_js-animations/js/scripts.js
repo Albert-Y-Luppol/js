@@ -65,8 +65,6 @@
                 timing: bounce
             });
         };
-    
-
     }
 
 
