@@ -15,7 +15,7 @@
             document.querySelector('time-formatted').setAttribute('datetime', new Date());
         }, 1000);
 
-        document.body.insertAdjacentHTML('beforeend', '<br><live-timer hour="numeric" minute="numeric" second="numeric"></live-timer>');
+        document.body.insertAdjacentHTML('beforeend', '<br><live-timer></live-timer>');
 
         document.querySelector('live-timer').addEventListener('tick', (e)=>{
             console.log(e.details);
@@ -59,6 +59,9 @@
 
         class LiveTimer extends TimeFormatted {
             connectedCallback(){
+                this.setAttribute('hour', "numeric");
+                this.setAttribute('minute', "numeric");
+                this.setAttribute('second', "numeric");
                 this.timer = setInterval(this.tick.bind(this), 1000);
             }
 
