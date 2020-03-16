@@ -14,7 +14,53 @@
 
 <body>
 
-    <script src="js/2_custom-events.js"></script>
+    <template id="shadowDOMAndTemplatesLight">
+        <style>
+            p{
+                color: green;
+                font-size: 20px;
+                cursor: pointer;
+            }
+            .light{
+                color: yellow;
+                text-shadow: 1px 1px 2px orange;
+            }
+            .dark{
+                color: black;
+            }
+        </style>
+        <p class="light">Hello From Light! (Click me!)</p>
+    </template>
+
+    <template id="shadowDOMAndTemplatesShadow">
+        <style>
+            p{
+                color: grey;
+                font-weight: 700;
+                text-shadow: 0px 0px 2px purple;
+            }
+        </style>
+        <p class="dark">Hello From Shadows!</p>
+    </template>
+
+    <template id="socialsShadow">
+        <style></style>
+        <ul>
+            <slot name="socials"></slot>
+        </ul>
+    </template>
+
+    <template id="socialsLight">
+        <social-links>
+            <a target="_blank" href="https://linkedin.com">Linkedin</a>
+            <a target="_blank" href="https://facebook.com">Facebook</a>
+            <a target="_blank" href="https://pinterest.com">Pinterest</a>
+        </social-links>
+    </template>
+
+    <script src="js/5_slot.js"></script>
+    <!-- <script src="js/3,4_shadow-Dom_and_templates.js"></script> -->
+    <!-- <script src="js/2_custom-elements.js"></script> -->
 
 </body>
 
