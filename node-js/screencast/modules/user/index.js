@@ -10,6 +10,6 @@ User.prototype.hello = function (who){
 }
 
 
-console.log("User is required!");
+log("User is required!");
 
 module.exports = User;
