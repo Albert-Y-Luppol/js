@@ -1,0 +1,5 @@
+{ a: 5, b: 6, inspect: [Function: inspect], self: [Circular] }
+My string 123 {"test":"obj"}
+Walk Bunny
+Jump Bunny
+Log
