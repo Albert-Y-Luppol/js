@@ -4,16 +4,24 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
-        {
 
+    {
+        "type": "node",
+        "request": "launch",
+        "name": "vscode",
+        "program": "${workspaceFolder}/node-js/vscode/expressApp/bin/www",
+        "skipFiles": [
+            "<node_internals>/**"
+        ]
+    },
+        {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}\\node-js\\screencast\\timers\\ref.js",
+            "name": "screencast",
+            "program": "${workspaceFolder}/node-js/screencast/app/app.js",
+            "env": {"NODE_PATH":".", "NODE_ENV":"development"},
+            "outputCapture": "std"
         }
+        
     ]
 }
