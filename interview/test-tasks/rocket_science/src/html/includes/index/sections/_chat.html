@@ -1,0 +1,79 @@
+<section id="chat" class=" pt-6 vh-100">
+    <div class="row">
+        <div class="col-sm-12 col-lg-6">
+            <h1>Чат с пользователем</h1>
+
+            <div class="hero__chat chat" id="chatUser">
+                <div class="row chat__header">
+                    <div class="col-2 chat__photo d-flex flex-column justify-content-center">
+                        <div class="chat__photo--wrap ">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div class="col-6 chat__user user d-flex flex-column justify-content-center">
+                        <h2 class="user__title">Наталия Полянская</h2>
+                        <div>
+                            <svg width="8" height="10" viewBox="0 0 8 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.27273 0.454545H0.909091V0H0V10H0.909091V5.90909H7.27273L5.90909 3.18182L7.27273 0.454545Z" fill="#FF4641"/>
+                            </svg>
+                            <span class="user__subtitle">Гид по Баварии, фотограф</span>
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex align-items-center justify-content-end">
+                        <svg width="13" height="12" class="chat__star">
+                            <use xlink:href="#star"></use>
+                        </svg>
+                        <svg class="chat__star">
+                            <use xlink:href="#star"></use>
+                        </svg>
+                        <svg width="13" height="12" class="chat__star">
+                            <use xlink:href="#star"></use>
+                        </svg>
+                        <svg width="13" height="12" class="chat__star">
+                            <use xlink:href="#star"></use>
+                        </svg>
+                        <svg width="13" height="12" class="chat__star">
+                            <use xlink:href="#star"></use>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="row chat__messages">
+
+                </div>
+
+                <div class="chat__footer">
+                    <div class="row">
+                        <div class="col-2 chat__photo d-flex flex-column justify-content-center">
+                            <div class="chat__photo--wrap ">
+                                <img src="" alt="">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <form name="userMessage">
+                                <input type="text" placeholder="Напишите сообщение...">
+                            </form>
+                        </div>
+                        <div class="col-2 d-flex align-items-center justify-content-end">
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.000504511 11.7943L5.95749 14.5139L17.6432 4.88889L8.32519 15.6597L9.77636 22L11.5327 17.6455L18.3306 20.7778C18.2084 20.9007 22.1194 0.122905 21.9972 0C21.9972 0 -0.121699 11.7943 0.000504511 11.7943Z" fill="#FF4641"/>
+                            </svg> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6"></div>
+    </div>
+</section>
+
+<template id="message">
+</template>
+
+<svg class="svg-sprite" hidden>
+
+    <symbol id="star" viewBox="0 0 13 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6.375 9.97771L2.78474 11.9593C2.54669 12.0907 2.26334 11.8842 2.31691 11.6184L3.11775 7.6442L0.104135 4.89617C-0.0976009 4.71222 0.0109123 4.37718 0.282514 4.34542L4.36191 3.86849L6.08556 0.183765C6.20017 -0.0612557 6.54982 -0.0612549 6.66444 0.183766L8.38809 3.86849L12.4675 4.34542C12.7391 4.37718 12.8476 4.71222 12.6459 4.89617L9.63225 7.6442L10.4331 11.6184C10.4867 11.8842 10.2033 12.0907 9.96525 11.9593L6.375 9.97771Z"/>
+    </symbol>
+        
+</svg>

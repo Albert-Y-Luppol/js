@@ -1,0 +1,133 @@
+@import 'lib/bootstrap/bootstrap';
+
+@import 'styles/main';
+
+
+*, a {
+    box-sizing: border-box;
+    // outline: none;
+    color: $text-color;
+}
+
+html {
+    height: 100%;
+    font-size: 10px;
+}
+
+body {
+    min-height: 100%;
+    @include font(1.5rem, $text-color, 400, $text-ff, 1.3);
+    background: #E5E5E5;
+}
+
+h1{
+    font-size: 2rem;
+    line-height: 1.1;
+    letter-spacing: 0.03rem;
+    font-weight: 700;
+    margin: 2rem 0 2rem 0;
+    // white-space: nowrap;
+}
+
+h2{
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+
+section{
+    margin-bottom: 2rem;
+}
+
+.svg-sprite{
+    display: none;
+}
+
+.hero{
+    margin-top: 11rem;
+    background-color: #fff;
+
+    &__article{
+        padding: 3rem;
+    }
+
+    &__img{
+        padding-top: 100%;
+        position: relative;
+
+        & svg{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__btn{
+
+        display: inline-block;
+        border-bottom:  3px solid #FF4641;
+
+        @include hover{
+            border-color: rgb(255, 220, 65);
+            text-decoration: none;
+            color: $text-color;
+        }
+    }
+}
+
+
+.chat{
+
+    background: #fff;
+    overflow: hidden;
+    outline: 1px solid green;
+
+    &__star{
+        width: 1.7rem;
+        height: 1.5rem;
+        fill: #F1EBDB;
+        margin-left: 0.5rem;
+
+        &--gold{
+            fill: rgb(255, 195, 29);
+        }
+    }
+
+    &__photo{
+
+        &--wrap{
+            padding-top: 100%;
+            position: relative;
+            border-radius: 50%;
+
+        }
+
+        & svg, img{
+            width: 100%;
+            min-width: 100%;
+            min-height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+
+    &__header{
+        padding: 2.5rem;
+        border-bottom: 1px solid grey;
+    }
+
+    &__footer{
+        padding: 2.5rem;
+        border-top: 1px solid grey;
+    }
+}
+
+.user{
+    &__subtitle{
+        font-size: 1.3rem;
+        color: #FF4641;
+    }
+}
