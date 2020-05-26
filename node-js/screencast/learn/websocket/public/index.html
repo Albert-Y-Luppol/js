@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket</title>
+
+    <style></style>
+    <script>
+        //ws.js
+
+        function updateStats(memuse){
+            document.getElementById('rss').innerHTML = memuse.rss;
+            document.getElementById('heapTotal').innerHTML = memuse.heapTotal;
+            document.getElementById('heapUsed').innerHTML = memuse.heapUsed;
+        }
+
+        let ws = new WebSocket('ws://localhost:8080');
+
+        ws.onmessage = function (event){
+            updateStats(JSON.parse(event.data));
+        };
+
+        ws.onopen = function(){
+            console.log("Connected.");
+        };
+
+        ws.onclose = function(event){
+            if(event.wasClean){
+                console.log("Connection closed clean.");
+            } else {
+                console.log("Connection lost.");
+            }
+            console.log("Code: " + event.code + "; cause: " + event.reason);
+        };
+
+        ws.onerror = function(error){
+            console.error("Error " + error.message);
+        };
+    </script>
+</head>
+<body>
+    <h1>Server Stats</h1>
+    <p>RSS: <span id="rss"></span></p>
+    <p>Heap total: <span id="heapTotal"></span></p>
+    <p>Heap used: <span id="heapUsed"></span></p>
+</body>
+</html>

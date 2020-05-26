@@ -6,7 +6,11 @@ var http = require('http');
 let config = require('./config');
 let log = require('./libs/log')(module);
 var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 let HttpError = require('./error').HttpError;
+let session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const mongoose = require('./libs/mongoose');
 
 var app = express();
 
@@ -18,7 +22,22 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(session({
+  secret: config.get('session:secret'), //ASDKJHJKASD8768SADAS786ASD6.SHA256
+  key: config.get('session:key'),
+  cookie: config.get('session:cookie'),
+  store: new MongoStore({mongooseConnection: mongoose.connection})
+}));
+
+app.use(function(req, res, next){
+  next();
+  // req.session.numberOfVisits = req.session.numberOfVisits + 1 || 1;
+  // res.send("Visits: " + req.session.numberOfVisits);
+});
+
+app.use(require('./middleware/loadUser'));
 app.use(require('./middleware/sendHttpError'));
 
 require('./routes')(app);
@@ -45,9 +64,19 @@ app.use(function(err, req, res, next){
 });
 
 
-http.createServer(app).listen(config.get('port'), function(){
+const server = http.createServer(app);
+
+server.listen(config.get('port'), function(){
   log.info('Express server listening on port ' + config.get('port'));
 });
 
 
+const io = require('socket.io')(server);
 
+io.on('connection', function(socket){
+  socket.on('message', function(text, callback){ 
+    socket.broadcast.emit('message', text); // emit an event to the socket
+    // io.emit('message', text);// io.emit('broadcast', /* */); // emit an event to all connected sockets
+    callback('123');
+  }); // listen to the event
+});

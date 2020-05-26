@@ -7,5 +7,13 @@
             "useNewUrlParser": true,
             "useUnifiedTopology": true
         }
+    },
+    "session": {
+        "secret": "KillerIsJim",
+        "key": "sid",
+        "cookie": {
+            "path": "/",
+            "httpOnly": true
+        }
     }
 }
