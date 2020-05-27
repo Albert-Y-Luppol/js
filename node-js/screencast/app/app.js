@@ -70,13 +70,4 @@ server.listen(config.get('port'), function(){
   log.info('Express server listening on port ' + config.get('port'));
 });
 
-
-const io = require('socket.io')(server);
-
-io.on('connection', function(socket){
-  socket.on('message', function(text, callback){ 
-    socket.broadcast.emit('message', text); // emit an event to the socket
-    // io.emit('message', text);// io.emit('broadcast', /* */); // emit an event to all connected sockets
-    callback('123');
-  }); // listen to the event
-});
+require('./socket')(server);

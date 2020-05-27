@@ -2,7 +2,7 @@
 <% block('title', 'Ho-ho-ho!') -%>
 
 <p class="lead">There will be chat.</p>
-<script src="/socket.io/socket.io.js"></script>
+<script src="/vendor/bower_components/socket.io-client/dist/socket.io.js"></script>
 
 <div id="room">
     <ul></ul>
@@ -12,26 +12,57 @@
 </div>
 
 <script>
-    const socket = io();
+    const socket = io('', {
+        reconnectionDelay: 1,
+        reconnectionAttempts: 10
+        // reconnection: false
+    });
     let form = $('#room form');
     let ul = $('#room ul');
+    let input = $('#room input');
 
-    console.log(form);
+    socket
+        .on('message', (text) => {
+            printMessage(text);
+        })
+        .on('connect', function(){
+            printStatus('Connected'),
+            form.on('submit', sendMessage);
+            input.prop('disabled', false);
+        })
+        .on('disconnect', function(){
+            printStatus('Connection Lost');
+            form.off('submit', sendMessage);
+            input.prop('disabled', true);
+            // setTimeout(reconnect, 500);
+        })
+        .on('reconnect_failed', function(){
+            printStatus('Connection Died!');
+        });
 
-    form.submit(function(e){
+    function reconnect(){
+        socket.io.once('connect_error', function(){
+            setTimeout(reconnect, 500);
+        });
+        socket.open();
+    }
+
+    function sendMessage(e){
         e.preventDefault();
 
-        let input = $(this).find(':input');
         let text = input.val();
         input.val('');
-        socket.emit('message', text, (data)=>{
-            console.log(data);
-            $('<li>', {text: text}).appendTo(ul);
+        socket.emit('message', text, ()=>{
+            printMessage(text);
         });
-        console.log(text);
-    });
+    }
 
-    socket.on('message', (text) => {
+    function printMessage(text){
         $('<li>', {text: text}).appendTo(ul);
-    });
+    }
+
+    function printStatus(status){
+        $('<li>').append($('<i>').text(status)).appendTo(ul);
+    }
+
 </script>
