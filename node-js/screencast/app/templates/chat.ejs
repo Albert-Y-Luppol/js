@@ -22,8 +22,14 @@
     let input = $('#room input');
 
     socket
-        .on('message', (text) => {
-            printMessage(text);
+        .on('message', (username, text) => {
+            printMessage(username + "> " + text);
+        })
+        .on('join', (username)=>{
+            printStatus(username + " enter chat")
+        })
+        .on('leave', (username)=>{
+            printStatus(username + " leaved chat")
         })
         .on('connect', function(){
             printStatus('Connected'),
@@ -34,7 +40,17 @@
             printStatus('Connection Lost');
             form.off('submit', sendMessage);
             input.prop('disabled', true);
-            // setTimeout(reconnect, 500);
+            // this.emit('error');
+        })
+        .on('errorevent', function(reason){
+            if(reason == 'handshake unauthorized'){
+                printStatus('you loged out');
+            } 
+            // else {
+            //     setTimeout(function(){
+            //         socket.open();
+            //     }, 500);
+            // }
         })
         .on('reconnect_failed', function(){
             printStatus('Connection Died!');

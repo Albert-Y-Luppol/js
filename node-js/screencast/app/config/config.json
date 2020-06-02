@@ -13,7 +13,8 @@
         "key": "sid",
         "cookie": {
             "path": "/",
-            "httpOnly": true
+            "httpOnly": true,
+            "maxAge": null
         }
     }
 }

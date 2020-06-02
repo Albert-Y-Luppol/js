@@ -9,8 +9,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 let HttpError = require('./error').HttpError;
 let session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
-const mongoose = require('./libs/mongoose');
+// const MongoStore = require('connect-mongo')(session);
+// const mongoose = require('./libs/mongoose');
+const sessionStore = require('./libs/sessionStore')
 
 var app = express();
 
@@ -21,14 +22,14 @@ app.set('view engine', 'ejs');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+// app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(session({
   secret: config.get('session:secret'), //ASDKJHJKASD8768SADAS786ASD6.SHA256
   key: config.get('session:key'),
   cookie: config.get('session:cookie'),
-  store: new MongoStore({mongooseConnection: mongoose.connection})
+  store: sessionStore
 }));
 
 app.use(function(req, res, next){
@@ -70,4 +71,5 @@ server.listen(config.get('port'), function(){
   log.info('Express server listening on port ' + config.get('port'));
 });
 
-require('./socket')(server);
+let io = require('./socket')(server);
+app.set('io', io);
