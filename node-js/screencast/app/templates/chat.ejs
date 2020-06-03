@@ -13,7 +13,7 @@
 
 <script>
     const socket = io('', {
-        reconnectionDelay: 1,
+        reconnectionDelay: 500,
         reconnectionAttempts: 10
         // reconnection: false
     });
@@ -52,6 +52,9 @@
             //     }, 500);
             // }
         })
+        .on('logout', function(){
+            location.href = '/';
+        })
         .on('reconnect_failed', function(){
             printStatus('Connection Died!');
         });
@@ -69,7 +72,7 @@
         let text = input.val();
         input.val('');
         socket.emit('message', text, ()=>{
-            printMessage(text);
+            printMessage("Me> " + text);
         });
     }
 

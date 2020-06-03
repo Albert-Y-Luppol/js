@@ -70,49 +70,48 @@ module.exports = function (server){
                 socket.request.session = session;
                 loadUser(session, callback);
             },
-            function (user, callback){
+            function (user){
                 if(!user){
                     callback(new HttpError(403, "No user. Anonymous session may not connect"));
                 }
 
                 socket.request.user = user;
-                callback(null);
+                next(null);
             }
         ], function(err){
-            if(!err){
-                next();
-            }
-
             next(err);
         });
-    })
+    });
 
 
     io.on('sessionreload', function(sid){
 
-        console.log("Reload catched!");
+        // console.log("Reload catched!");
         let clients = io.sockets.sockets;
 
         for (let id in clients){
             let socket = clients[id]; 
 
-            console.log(socket.request.session.id)
-            if(socket.request.session.id != sid) return;
+            // console.log(socket.request.session.id + " == " + sid)
+            if(socket.request.session.id == sid) {
+                
+                // console.log("Load sessio!n");
 
-            loadSession(sid, function(err, session){
-                if(err){
-                    socket.emit("errorevent", "server error");
-                    socket.disconnect();
-                    return;
-                }
-                if(!session){
-                    socket.emit("errorevent", "handshake unauthorized");
-                    socket.disconnect();
-                    return;
-                }
+                loadSession(sid, function(err, session){
+                    if(err){
+                        socket.emit("errorevent", "server error");
+                        socket.disconnect();
+                        return;
+                    }
+                    if(!session){
+                        socket.emit("logout");
+                        socket.disconnect();
+                        return;
+                    }
 
-                socket.request.session = session;
-            });
+                    socket.request.session = session;
+                });
+            }
         }
 
     });
@@ -121,10 +120,10 @@ module.exports = function (server){
 
         //browser -- sid --> WsKEY -> server
 
-        console.log("Session Id: " + socket.request.session.id);
+        // console.log("Session Id: " + socket.request.session.id);
 
         let username = socket.request.user.get('username');
-
+        // let username = "New";
 
         socket.broadcast.emit('join', username);
 
