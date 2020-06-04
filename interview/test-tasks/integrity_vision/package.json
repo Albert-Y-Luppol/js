@@ -1,0 +1,16 @@
+{
+  "name": "data-processing",
+  "version": "1.0.0",
+  "description": "Integrity Vision test task",
+  "private": true,
+  "scripts": {
+    "json": "node jsonTestsRun.js",
+    "start": "node manuallyRun.js"
+  },
+  "author": "Albert Luppol",
+  "license": "ISC",
+  "devDependencies": {
+    "fs": "0.0.1-security"
+  },
+  "dependencies": {}
+}
