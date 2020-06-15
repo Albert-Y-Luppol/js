@@ -1,0 +1,15 @@
+{
+  "name": "data-processing",
+  "version": "1.0.0",
+  "description": "Integrity Vision test task",
+  "private": true,
+  "scripts": {
+    "test": "node dataPreparation.js"
+  },
+  "author": "Albert Luppol",
+  "license": "ISC",
+  "devDependencies": {
+    "fs": "0.0.1-security"
+  },
+  "dependencies": {}
+}

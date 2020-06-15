@@ -1,0 +1,26 @@
+[
+  [
+    {
+      "fullName": {
+        "surname": { "main": "Smith", "add": "Sm" },
+        "firstName": "yyy",
+        "middleName": "zzz"
+      }
+    },
+    {
+      "fullName": {
+        "surname": { "main": "Cat", "add": "Ct" },
+        "firstName": "YYY",
+        "middleName": "ZZZ"
+      }
+    }
+  ],
+  {
+    "fullName": {
+      "surname": { "main": false, "add": true },
+      "firstName": true,
+      "middleName": false
+    }
+  },
+  null
+]

@@ -1,0 +1,12 @@
+[
+  [
+    {
+      "fullName": { "surname": "xxx", "firstName": "yyy", "middleName": "zzz" }
+    },
+    {
+      "fullName": { "surname": "XXX", "firstName": "YYY", "middleName": "ZZZ" }
+    }
+  ],
+  { "fullName": { "surname": true, "firstName": true, "middleName": false } },
+  { "fullName.surname": "Прізвище", "fullName.middleName": "По-батькові" }
+]
