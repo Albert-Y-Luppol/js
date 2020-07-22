@@ -1,24 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>First App</title>
-  </head>
-  <body>
-    <div class="row">
-      <div class="col-4 offset-4 border">
-        <h1 class="text-center">Intefrity by Al</h1>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-4 offset-4 border">
+    <h1 class="text-center">
+      Integrity by Al<br />
+      Welcome to {{ title }}
+    </h1>
+  </div>
+</div>
 
-    <div class="grid">
-      <div class="grid__left-top"></div>
-      <div class="grid__right-top"></div>
-      <div class="grid__left-bottom"></div>
-      <div class="grid__right-bottom"></div>
-    </div>
-  </body>
-</html>
+<div class="grid">
+  <div class="grid__left-top"></div>
+  <div class="grid__right-top"></div>
+  <div class="grid__left-bottom"></div>
+  <div class="grid__right-bottom"></div>
+</div>
 
+<app-tasks></app-tasks>
+<h2>List of Completed tasks:</h2>
+
+<app-completed-tasks></app-completed-tasks>
+
+<button (click)="readMe()">Click Me</button>
+
+<div *ngIf="showMsg" [ngStyle]="{ color: colorName }">
+  Show this message from IF true statement.
+</div>
+
+<div *ngIf="showMsg; else showElseMsg" [ngStyle]="{ color: colorName }">
+  IF true
+</div>
+<ng-template #showElseMsg>
+  <div [ngStyle]="{ color: colorName }">ELSE</div>
+</ng-template>
+
+<div *ngIf="showMsg; then showThenMsg; else showElseMsgThen">
+  IF true furthermore
+</div>
+<ng-template #showThenMsg>Then Message</ng-template>
+<ng-template #showElseMsgThen>Else Message</ng-template>
 <router-outlet></router-outlet>
