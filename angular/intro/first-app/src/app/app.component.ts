@@ -10,6 +10,16 @@ export class AppComponent {
 
   showMsg = true;
   colorName = 'green';
+  colorValue = 'indigo';
+  switchValue = 'three';
+  clsName = 'doom';
+  clsNameLast = 'peace';
+  implementClasses = false;
+  users = [
+    { id: 1, name: 'John' },
+    { id: 2, name: 'Sue' },
+    { id: 3, name: 'Gin' },
+  ];
 
   readMe() {
     console.log('Button Clicked!');

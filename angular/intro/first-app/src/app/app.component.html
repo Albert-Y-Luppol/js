@@ -20,6 +20,7 @@
 <app-completed-tasks></app-completed-tasks>
 
 <button (click)="readMe()">Click Me</button>
+<div>__________________*ngIf______________________________</div>
 
 <div *ngIf="showMsg" [ngStyle]="{ color: colorName }">
   Show this message from IF true statement.
@@ -37,4 +38,53 @@
 </div>
 <ng-template #showThenMsg>Then Message</ng-template>
 <ng-template #showElseMsgThen>Else Message</ng-template>
+<br />
+
+<div>__________________*ngSwitch______________________________</div>
+<div [ngSwitch]="switchValue">
+  <div *ngSwitchCase="1">Value 1</div>
+  <div *ngSwitchCase="2">Value 2</div>
+  <div *ngSwitchCase="'three'">Value 3</div>
+  <div *ngSwitchCase="4">Value 4</div>
+  <div *ngSwitchCase="5">Value 5</div>
+  <div *ngSwitchDefault>Default</div>
+</div>
+<br />
+
+<div>________________________*ngFor_______________________________</div>
+<ul>
+  <li *ngFor="let user of users">{{ user.name }}</li>
+</ul>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Index</th>
+    <th>First</th>
+    <th>Last</th>
+    <th>Odd</th>
+    <th>Even</th>
+  </tr>
+  <tr
+    *ngFor="
+      let user of users;
+      index as i;
+      first as f;
+      last as l;
+      even as e;
+      odd as o
+    "
+  >
+    <td>{{ user.id }}</td>
+    <td>{{ user.name }}</td>
+    <td>{{ i }}</td>
+    <td [ngStyle]="{ color: colorValue, background: '#ffeeff' }">{{ f }}</td>
+    <td>{{ l }}</td>
+    <td [ngClass]="[clsName, clsNameLast]">{{ o }}</td>
+    <td [ngClass]="{ doom: implementClasses, peace: !implementClasses }">
+      {{ e }}
+    </td>
+  </tr>
+</table>
+
 <router-outlet></router-outlet>
