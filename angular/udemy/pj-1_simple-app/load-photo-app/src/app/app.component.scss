@@ -1,0 +1,30 @@
+.upload-photo {
+  display: inline-block;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__label {
+    // outline: 1px solid green;
+    border: 2px solid rgb(255, 174, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vw;
+    height: 20vh;
+    box-shadow: inset 0px 0px 15vw rgb(255, 153, 0);
+    user-select: none;
+    transform: scale(1);
+
+    &:hover,
+    &:focus,
+    &:active {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+  }
+  &__input {
+    display: none;
+  }
+}

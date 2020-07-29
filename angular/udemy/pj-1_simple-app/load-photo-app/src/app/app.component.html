@@ -1,0 +1,14 @@
+<h1>Upload your photo:)</h1>
+<form class="upload-photo">
+  <label class="upload-photo__label" for="uploadPhotoInput">
+    Drop photo here
+    <input
+      (change)="onFileSelected($event.target.files)"
+      class="upload-photo__input"
+      id="uploadPhotoInput"
+      type="file"
+    />
+  </label>
+</form>
+
+<router-outlet></router-outlet>

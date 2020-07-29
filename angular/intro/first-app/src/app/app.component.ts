@@ -21,6 +21,9 @@ export class AppComponent {
     { id: 3, name: 'Gin' },
   ];
 
+  hrefVal = 'http://google.com';
+  updateLink = 'http://oracle.com';
+
   readMe() {
     console.log('Button Clicked!');
   }
