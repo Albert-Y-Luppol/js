@@ -1,0 +1,24 @@
+<h1>Hero Table:</h1>
+<ul>
+  <li *ngFor="let hero of heros">
+    {{ hero.name }} <button (click)="remove(hero)">Remove</button> {{ hero.id }}
+  </li>
+</ul>
+
+<button (click)="onSave($event)">Save</button>
+<form #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm)" novalidate>
+  <fieldset ngModelGroup="personal">
+    <input type="text" placeholder="name" name="name" ngModel />
+    <input type="text" placeholder="job" name="job" ngModel />
+  </fieldset>
+  <div ngModelGroup="more">
+    <input type="text" placeholder="name" name="var" ngModel />
+    <input type="text" placeholder="job" name="DOM" ngModel />
+  </div>
+
+  <div ngModelGroup="Two-Way">
+    <input type="text" placeholder="name" name="var" [(ngModel)]="joe" />
+  </div>
+
+  <button>Submit</button>
+</form>

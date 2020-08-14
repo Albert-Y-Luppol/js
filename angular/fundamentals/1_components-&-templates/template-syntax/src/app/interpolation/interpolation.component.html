@@ -1,0 +1,12 @@
+<h1 class="title">Interpolation</h1>
+<h3>{{ currentCustomer }}</h3>
+<p class="text">{{ title }}</p>
+<div><img src="{{ itemImageUrl }}" alt="Ho-ho-ho" /></div>
+<p>The sum of 1 + 1 is {{ 1 + 1 }}</p>
+<p>1 + 1 is not {{ 1 + 1 + getVal() }}</p>
+<h4>{{ recomended }}</h4>
+<img [src]="itemImageUrl2" style="max-width: 400px;" /><br />
+<label>
+  <h5>Input text: {{ test.value }}</h5>
+  <input #test (change)="setTest()" placeholder="Test" />
+</label>
