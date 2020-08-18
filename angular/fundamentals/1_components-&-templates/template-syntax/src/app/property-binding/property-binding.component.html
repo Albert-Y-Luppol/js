@@ -1,0 +1,77 @@
+<h1 class="title">property binding</h1>
+<ul>
+  <li>
+    <h4>URL</h4>
+    <img [src]="imageUrlBinding" />
+  </li>
+  <li>
+    <h4>Table</h4>
+    <table>
+      <tr>
+        <td [colSpan]="2">Span 2 columns</td>
+        <td>Span 1 column</td>
+      </tr>
+      <tr>
+        <td>Span 1column</td>
+        <td>Span 1 column</td>
+        <td>Span 1 column</td>
+      </tr>
+    </table>
+  </li>
+  <li>
+    <h4>Unchanged</h4>
+    <button [disabled]="isDisabled">See Disabled</button
+    ><button (click)="toggleIsDisabled()">Toggle</button>
+  </li>
+  <li>
+    <h4>Class</h4>
+    <p [ngClass]="classes">
+      [ngClass] binding to the classes property making this blue
+    </p>
+  </li>
+  <li>
+    <h4>Parent - child communication</h4>
+    <app-item-detail [childItem]="parentItem"></app-item-detail>
+  </li>
+  <li>
+    <h4>Alternative binding</h4>
+    <img bind-src="imageUrlBinding" />
+  </li>
+  <li>
+    <h4>Constant binding</h4>
+    <app-string-init prefix="This is prefix."></app-string-init>
+  </li>
+  <li>
+    <h4>Property binding vs Interpolation</h4>
+    <p>
+      <img src="{{ imageUrlBinding }}" alt="Interpolation" /> is the
+      <i>interpolated</i> image.
+    </p>
+    <p>
+      <img [src]="imageUrlBinding" alt="Property" /> is the
+      <i>property bound</i> image.
+    </p>
+    <p>
+      "<span>{{ title }}</span
+      >" is the <i>interpolated</i> title.
+    </p>
+    <p>
+      "<span [innerHTML]="title"></span>" is the <i>property bound</i> title.
+    </p>
+  </li>
+  <li>
+    <h4>Evil title</h4>
+    <p>
+      "<span>{{ evilTitle }}</span
+      >" is the <i>interpolated</i> evil title.
+    </p>
+    <!--
+ Angular generates a warning for the following line as it sanitizes them
+ WARNING: sanitizing HTML stripped some content (see http://g.co/ng/security#xss).
+-->
+    <p>
+      "<span [innerHTML]="evilTitle"></span>" is the <i>property bound</i> evil
+      title.
+    </p>
+  </li>
+</ul>

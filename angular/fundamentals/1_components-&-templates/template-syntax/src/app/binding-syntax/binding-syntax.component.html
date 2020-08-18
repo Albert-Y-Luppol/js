@@ -1,0 +1,12 @@
+<h1 class="title">Binding Syntax</h1>
+<div class="binding-syntax__special">Plan old HTML</div>
+<img
+  src="https://imgcomfort.com/Userfiles/Upload/images/illustration-geiranger.jpg"
+  style="max-width: 600px;"
+/><br />
+<button [disabled]="isUnchanged">Save</button>
+<button (click)="toggleUnchanged()">Toggle</button>
+
+<h2>Disabled buttons</h2>
+<input [disabled]="isUnchanged ? true : false" />
+<input [attr.disabled]="isUnchanged ? 'disabled' : null" />

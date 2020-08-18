@@ -1,0 +1,12 @@
+table {
+  border: 1px solid white;
+}
+td {
+  border: 1px solid rgb(245, 228, 0);
+}
+
+.property-binding {
+  &__yellow {
+    color: yellow;
+  }
+}
