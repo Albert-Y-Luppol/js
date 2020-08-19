@@ -1,0 +1,53 @@
+<h1 class="title">attribute, class and style bindings</h1>
+<ul>
+  <li>
+    <h2>Attribute binding</h2>
+    <button [attr.aria-lable]="actionName">{{ actionName }} : Indeed</button>
+    <table>
+      <tr>
+        <td [colSpan]="1 + 1">Span 2 columns</td>
+        <td>Span 1 column</td>
+      </tr>
+      <tr>
+        <td>Span 1column</td>
+        <td>Span 1column</td>
+        <td>Span 1column</td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td [attr.colspan]="1 + 1">Span 2 columns</td>
+        <td>Span 1 column</td>
+        <td>Span 1column</td>
+      </tr>
+      <tr>
+        <td>Span 1column</td>
+        <td>Span 1column</td>
+        <!--property binding by interpolation-->
+        <td colSpan="{{ 1 + 1 }}">Span 1column</td>
+
+        <!-- <td colspan="{{ 1 + 1 }}">Span 2 columns</td> -->
+      </tr>
+    </table>
+  </li>
+  <li>
+    <h2>Style binding</h2>
+    <div style="width: 2rem;" class="binding__bg-mate"></div>
+    <div [style.width.rem]="widthRem" class="binding__bg-mate"></div>
+    <div [style]="styleString" class="binding__bg-mate"></div>
+    <div [style]="styleObj" class="binding__bg-mate"></div>
+  </li>
+</ul>
+
+<h3>Info:</h3>
+<p>
+  Need to know what is "host" (custom tag) and @Directive(custom attribute).
+  <br />
+  There are special values: null (remove attr)(even if there is lighter binding
+  the same attr) and undefined(take lighter value). <br />
+  Dynamic Specific class/style binding is the most heavy.<br />
+  Then string and object binding<br />
+  Then @Directive<br />
+  Then host<br />
+  And the last - static values.
+</p>

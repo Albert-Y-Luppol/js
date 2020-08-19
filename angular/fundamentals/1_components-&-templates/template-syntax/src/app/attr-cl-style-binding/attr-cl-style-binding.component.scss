@@ -1,0 +1,19 @@
+td {
+  border: 1px solid green;
+}
+
+.binding {
+  &__bar {
+    text-decoration: orange wavy overline;
+    padding-top: 2rem;
+  }
+
+  &__decoration {
+    color: orchid;
+  }
+
+  &__bg-mate {
+    background: mediumseagreen;
+    height: 2rem;
+  }
+}

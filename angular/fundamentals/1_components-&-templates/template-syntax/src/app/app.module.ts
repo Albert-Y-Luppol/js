@@ -14,6 +14,7 @@ import { BindingSyntaxComponent } from './binding-syntax/binding-syntax.componen
 import { PropertyBindingComponent } from './property-binding/property-binding.component';
 import { AppItemDetailComponent } from './property-binding/app-item-detail/app-item-detail.component';
 import { StringInitComponent } from './property-binding/string-init/string-init.component';
+import { AttrClStyleBindingComponent } from './attr-cl-style-binding/attr-cl-style-binding.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { StringInitComponent } from './property-binding/string-init/string-init.
     PropertyBindingComponent,
     AppItemDetailComponent,
     StringInitComponent,
+    AttrClStyleBindingComponent,
   ],
   imports: [
     BrowserModule,
