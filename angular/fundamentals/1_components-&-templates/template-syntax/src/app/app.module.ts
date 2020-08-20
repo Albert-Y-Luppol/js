@@ -15,6 +15,8 @@ import { PropertyBindingComponent } from './property-binding/property-binding.co
 import { AppItemDetailComponent } from './property-binding/app-item-detail/app-item-detail.component';
 import { StringInitComponent } from './property-binding/string-init/string-init.component';
 import { AttrClStyleBindingComponent } from './attr-cl-style-binding/attr-cl-style-binding.component';
+import { EventBindingComponent } from './event-binding/event-binding.component';
+import { ClickDirective } from './event-binding/click.directive';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { AttrClStyleBindingComponent } from './attr-cl-style-binding/attr-cl-sty
     AppItemDetailComponent,
     StringInitComponent,
     AttrClStyleBindingComponent,
+    EventBindingComponent,
+    ClickDirective,
   ],
   imports: [
     BrowserModule,

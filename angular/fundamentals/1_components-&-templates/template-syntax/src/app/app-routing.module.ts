@@ -6,6 +6,7 @@ import { InterpolationComponent } from './interpolation/interpolation.component'
 import { BindingSyntaxComponent } from './binding-syntax/binding-syntax.component';
 import { PropertyBindingComponent } from './property-binding/property-binding.component';
 import { AttrClStyleBindingComponent } from './attr-cl-style-binding/attr-cl-style-binding.component';
+import { EventBindingComponent } from './event-binding/event-binding.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/intro', pathMatch: 'full' },
@@ -18,7 +19,7 @@ const routes: Routes = [
     path: 'attributes-class-style-bindings',
     component: AttrClStyleBindingComponent,
   },
-  { path: 'event-binding', component: TemplateStatementsComponent },
+  { path: 'event-binding', component: EventBindingComponent },
   { path: 'two-way-binding', component: TemplateStatementsComponent },
   { path: 'built-in-directives', component: TemplateStatementsComponent },
   {

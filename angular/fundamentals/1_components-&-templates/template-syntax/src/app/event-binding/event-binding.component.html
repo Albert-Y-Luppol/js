@@ -1,0 +1,20 @@
+<h1 class="title">event binding</h1>
+<button (click)="onClickEvent($event)">{{ clickTarget || null }}</button>
+<button on-click="onClick($event)">on-click</button>
+<h2>myClick is an event on the custom ClickDirective:</h2>
+<button (myClick)="clickMessage = $event" clickable>Click with myClick</button>
+<p>{{ clickMessage }}</p>
+<input
+  type="text"
+  [value]="currentItem.name"
+  (input)="currentItem.name = $event.target.value"
+/>{{ currentItem.name }}
+
+<br />
+<app-item-detail
+  *ngFor="let heroItem of heroItems"
+  (deleteRequest)="deleteItem($event)"
+  [item]="heroItem"
+></app-item-detail>
+
+<h3>Be careful with side effects!</h3>
