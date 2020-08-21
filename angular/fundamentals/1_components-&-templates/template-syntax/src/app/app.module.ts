@@ -17,6 +17,8 @@ import { StringInitComponent } from './property-binding/string-init/string-init.
 import { AttrClStyleBindingComponent } from './attr-cl-style-binding/attr-cl-style-binding.component';
 import { EventBindingComponent } from './event-binding/event-binding.component';
 import { ClickDirective } from './event-binding/click.directive';
+import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
+import { SizerComponent } from './two-way-binding/sizer/sizer.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { ClickDirective } from './event-binding/click.directive';
     AttrClStyleBindingComponent,
     EventBindingComponent,
     ClickDirective,
+    TwoWayBindingComponent,
+    SizerComponent,
   ],
   imports: [
     BrowserModule,

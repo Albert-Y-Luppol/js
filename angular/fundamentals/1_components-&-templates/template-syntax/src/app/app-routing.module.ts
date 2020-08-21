@@ -7,6 +7,7 @@ import { BindingSyntaxComponent } from './binding-syntax/binding-syntax.componen
 import { PropertyBindingComponent } from './property-binding/property-binding.component';
 import { AttrClStyleBindingComponent } from './attr-cl-style-binding/attr-cl-style-binding.component';
 import { EventBindingComponent } from './event-binding/event-binding.component';
+import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/intro', pathMatch: 'full' },
@@ -20,7 +21,7 @@ const routes: Routes = [
     component: AttrClStyleBindingComponent,
   },
   { path: 'event-binding', component: EventBindingComponent },
-  { path: 'two-way-binding', component: TemplateStatementsComponent },
+  { path: 'two-way-binding', component: TwoWayBindingComponent },
   { path: 'built-in-directives', component: TemplateStatementsComponent },
   {
     path: 'template-reference-variables',

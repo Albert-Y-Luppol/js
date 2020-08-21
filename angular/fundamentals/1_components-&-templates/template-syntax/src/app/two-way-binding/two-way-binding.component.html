@@ -1,0 +1,8 @@
+<h1 class="title">Two-way binding</h1>
+<app-sizer [(size)]="fontSizePx"></app-sizer>
+<div [style.font-size.px]="fontSizePx">Resizable Text</div>
+
+<app-sizer [size]="fontSizePx" (sizeChange)="fontSizePx = $event"></app-sizer>
+
+<br /><br />
+<p>Follow x --> xChange syntax (word Change is important in two way binding)</p>

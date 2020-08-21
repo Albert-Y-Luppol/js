@@ -5,9 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UploadFilesComponentComponent } from './upload-files-component/upload-files-component.component';
+import { TestAutostringifyComponent } from './test-autostringify/test-autostringify.component';
 
 @NgModule({
-  declarations: [AppComponent, UploadFilesComponentComponent],
+  declarations: [AppComponent, UploadFilesComponentComponent, TestAutostringifyComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
