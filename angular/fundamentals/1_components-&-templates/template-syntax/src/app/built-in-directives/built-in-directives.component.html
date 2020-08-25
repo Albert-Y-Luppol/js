@@ -1,0 +1,24 @@
+<h1 class="title">Built-in directives</h1>
+<div [ngClass]="isSpecial ? 'special' : ''">This div is special</div>
+<div [class.special]="isSpecial">Class binding</div>
+<div [ngClass]="currentClasses">Class Object</div>
+<button (click)="isSpecial = !isSpecial">Toggle isSpecial</button>
+<div [ngStyle]="currentStyles">
+  This div is initially italic, normal weight, and extra large (24px).
+</div>
+
+<label for="example-ngModel">[(ngModel)]</label>
+<input [(ngModel)]="currentItem.name" id="example-ngModel" /><br />
+{{ currentItem.name }}<br />
+<label for="example-change">(ngModelChange)="...name=$event":</label>
+<input
+  [ngModel]="currentItem.name"
+  (ngModelChange)="currentItem.name = $event"
+  id="example-change"
+/>
+<ul>
+  <li *ngFor="let id of ngForControlBy; trackBy: trackById">
+    {{ id.id }} - {{ id.name }} <input [(ngModel)]="id.name" />
+    <button (click)="changeId(id)">ChangeId</button>
+  </li>
+</ul>

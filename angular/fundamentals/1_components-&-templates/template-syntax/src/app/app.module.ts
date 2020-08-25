@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +10,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { IntroComponent } from './intro/intro.component';
 import { TemplateStatementsComponent } from './template-statements/template-statements.component';
 import { InterpolationComponent } from './interpolation/interpolation.component';
-import { FormsModule } from '@angular/forms';
 import { BindingSyntaxComponent } from './binding-syntax/binding-syntax.component';
 import { PropertyBindingComponent } from './property-binding/property-binding.component';
 import { AppItemDetailComponent } from './property-binding/app-item-detail/app-item-detail.component';
@@ -19,6 +19,7 @@ import { EventBindingComponent } from './event-binding/event-binding.component';
 import { ClickDirective } from './event-binding/click.directive';
 import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
 import { SizerComponent } from './two-way-binding/sizer/sizer.component';
+import { BuiltInDirectivesComponent } from './built-in-directives/built-in-directives.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { SizerComponent } from './two-way-binding/sizer/sizer.component';
     ClickDirective,
     TwoWayBindingComponent,
     SizerComponent,
+    BuiltInDirectivesComponent,
   ],
   imports: [
     BrowserModule,
