@@ -1,0 +1,8 @@
+<p>Today's item: {{ item }}</p>
+<p>{{ justTestInput }}</p>
+
+<label>Add an item: <input #newItem /></label>
+<button (click)="addNewItem(newItem.value); newItem.value = ''">
+  Add to parent's list
+</button>
+<button (click)="removeCurrentItem()">x</button>

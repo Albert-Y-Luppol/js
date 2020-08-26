@@ -21,6 +21,9 @@ import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.compon
 import { SizerComponent } from './two-way-binding/sizer/sizer.component';
 import { BuiltInDirectivesComponent } from './built-in-directives/built-in-directives.component';
 import { TemplateRefVarsComponent } from './template-ref-vars/template-ref-vars.component';
+import { InOutPropsComponent } from './in-out-props/in-out-props.component';
+import { ChildComponent } from './in-out-props/child/child.component';
+import { ParentComponent } from './in-out-props/parent/parent.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +42,9 @@ import { TemplateRefVarsComponent } from './template-ref-vars/template-ref-vars.
     SizerComponent,
     BuiltInDirectivesComponent,
     TemplateRefVarsComponent,
+    InOutPropsComponent,
+    ChildComponent,
+    ParentComponent,
   ],
   imports: [
     BrowserModule,
