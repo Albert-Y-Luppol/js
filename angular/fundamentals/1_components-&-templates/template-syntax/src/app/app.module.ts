@@ -20,6 +20,7 @@ import { ClickDirective } from './event-binding/click.directive';
 import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
 import { SizerComponent } from './two-way-binding/sizer/sizer.component';
 import { BuiltInDirectivesComponent } from './built-in-directives/built-in-directives.component';
+import { TemplateRefVarsComponent } from './template-ref-vars/template-ref-vars.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { BuiltInDirectivesComponent } from './built-in-directives/built-in-direc
     TwoWayBindingComponent,
     SizerComponent,
     BuiltInDirectivesComponent,
+    TemplateRefVarsComponent,
   ],
   imports: [
     BrowserModule,

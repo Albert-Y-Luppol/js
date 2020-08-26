@@ -9,6 +9,7 @@ import { AttrClStyleBindingComponent } from './attr-cl-style-binding/attr-cl-sty
 import { EventBindingComponent } from './event-binding/event-binding.component';
 import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.component';
 import { BuiltInDirectivesComponent } from './built-in-directives/built-in-directives.component';
+import { TemplateRefVarsComponent } from './template-ref-vars/template-ref-vars.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/intro', pathMatch: 'full' },
@@ -26,7 +27,7 @@ const routes: Routes = [
   { path: 'built-in-directives', component: BuiltInDirectivesComponent },
   {
     path: 'template-reference-variables',
-    component: TemplateStatementsComponent,
+    component: TemplateRefVarsComponent,
   },
   { path: 'inputs-outputs', component: TemplateStatementsComponent },
   {
