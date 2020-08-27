@@ -1,0 +1,20 @@
+<h1 class="title">template expression operators</h1>
+<p>
+  Pipe Ex: {{ "Hello" | uppercase }} {{ "Hello" | lowercase }}
+  {{ date | date: "longDate" }}
+  {{ { name: "Tom", surname: "Souer", age: 10 } | json }}
+</p>
+<p>
+  Safe "?." symbol: {{ { val1: 1, val2: 2 }?.name }}
+  {{ { val1: 1, val2: 2 }.name }}
+  {{ { val1: 1, val2: 2, name: null }.name?.amount }}
+  <!-- {{ { val1: 1, val2: 2, name: null }.name.amount }} -->
+  <!-- last gives err to browser console -->
+</p>
+<p>
+  Non-null accertion operator "!.": {{ "null"!.toUpperCase() }}
+  {{ { name: "tom" }.name!.toUpperCase() }}
+  <!-- {{ { name: "tom" }.surname!.toUpperCase() }} -->
+  <!-- generate runtime err -->
+</p>
+<p>The item's undeclared best by date is: {{ $any(item).bestByDate }}</p>

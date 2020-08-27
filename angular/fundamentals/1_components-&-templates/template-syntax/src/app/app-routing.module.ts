@@ -11,6 +11,7 @@ import { TwoWayBindingComponent } from './two-way-binding/two-way-binding.compon
 import { BuiltInDirectivesComponent } from './built-in-directives/built-in-directives.component';
 import { TemplateRefVarsComponent } from './template-ref-vars/template-ref-vars.component';
 import { InOutPropsComponent } from './in-out-props/in-out-props.component';
+import { TemplateExpressionOperatorsComponent } from './template-expression-operators/template-expression-operators.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/intro', pathMatch: 'full' },
@@ -33,7 +34,7 @@ const routes: Routes = [
   { path: 'inputs-outputs', component: InOutPropsComponent },
   {
     path: 'template-expression-operators',
-    component: TemplateStatementsComponent,
+    component: TemplateExpressionOperatorsComponent,
   },
   { path: 'svg-in-templates', component: TemplateStatementsComponent },
 ];

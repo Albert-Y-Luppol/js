@@ -24,6 +24,7 @@ import { TemplateRefVarsComponent } from './template-ref-vars/template-ref-vars.
 import { InOutPropsComponent } from './in-out-props/in-out-props.component';
 import { ChildComponent } from './in-out-props/child/child.component';
 import { ParentComponent } from './in-out-props/parent/parent.component';
+import { TemplateExpressionOperatorsComponent } from './template-expression-operators/template-expression-operators.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ParentComponent } from './in-out-props/parent/parent.component';
     InOutPropsComponent,
     ChildComponent,
     ParentComponent,
+    TemplateExpressionOperatorsComponent,
   ],
   imports: [
     BrowserModule,
