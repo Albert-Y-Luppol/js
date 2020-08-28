@@ -12,6 +12,7 @@ import { BuiltInDirectivesComponent } from './built-in-directives/built-in-direc
 import { TemplateRefVarsComponent } from './template-ref-vars/template-ref-vars.component';
 import { InOutPropsComponent } from './in-out-props/in-out-props.component';
 import { TemplateExpressionOperatorsComponent } from './template-expression-operators/template-expression-operators.component';
+import { SvgInTemplatesComponent } from './svg-in-templates/svg-in-templates.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/intro', pathMatch: 'full' },
@@ -36,7 +37,7 @@ const routes: Routes = [
     path: 'template-expression-operators',
     component: TemplateExpressionOperatorsComponent,
   },
-  { path: 'svg-in-templates', component: TemplateStatementsComponent },
+  { path: 'svg-in-templates', component: SvgInTemplatesComponent },
 ];
 
 @NgModule({

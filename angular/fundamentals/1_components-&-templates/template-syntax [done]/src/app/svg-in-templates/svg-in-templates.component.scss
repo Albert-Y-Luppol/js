@@ -1,0 +1,14 @@
+.svg {
+    user-select: none;
+    &__text {
+        fill: aliceblue;
+    }
+
+    &__btn {
+        &:hover,
+        &:focus,
+        &:active {
+            cursor: pointer;
+        }
+    }
+}

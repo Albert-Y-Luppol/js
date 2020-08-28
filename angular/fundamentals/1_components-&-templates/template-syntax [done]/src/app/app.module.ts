@@ -25,6 +25,7 @@ import { InOutPropsComponent } from './in-out-props/in-out-props.component';
 import { ChildComponent } from './in-out-props/child/child.component';
 import { ParentComponent } from './in-out-props/parent/parent.component';
 import { TemplateExpressionOperatorsComponent } from './template-expression-operators/template-expression-operators.component';
+import { SvgInTemplatesComponent } from './svg-in-templates/svg-in-templates.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { TemplateExpressionOperatorsComponent } from './template-expression-oper
     ChildComponent,
     ParentComponent,
     TemplateExpressionOperatorsComponent,
+    SvgInTemplatesComponent,
   ],
   imports: [
     BrowserModule,
