@@ -37,7 +37,7 @@ const routes: Routes = [
     component: TemplateExpressionOperatorsComponent,
   },
   { path: "svg-in-templates", component: SvgInTemplatesComponent },
-  { path: "*", redirectTo: "/intro", pathMatch: "full" },
+  { path: "*", redirectTo: "/intro" },
 ];
 
 @NgModule({
