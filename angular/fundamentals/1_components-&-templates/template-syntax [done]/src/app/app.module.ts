@@ -63,7 +63,7 @@ import { APP_BASE_HREF } from "@angular/common";
     {
       provide: APP_BASE_HREF,
       useValue:
-        "/angular/fundamentals/1_components-%26-templates/template-syntax%20%5Bdone%5D/dist",
+        "/js/angular/fundamentals/1_components-%26-templates/template-syntax%20%5Bdone%5D/dist",
     },
   ],
   bootstrap: [AppComponent],
