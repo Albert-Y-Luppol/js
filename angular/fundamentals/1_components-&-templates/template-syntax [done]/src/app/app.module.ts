@@ -60,11 +60,11 @@ import { APP_BASE_HREF } from "@angular/common";
     FormsModule,
   ],
   providers: [
-    {
-      provide: APP_BASE_HREF,
-      useValue:
-        "js/angular/fundamentals/1_components-%26-templates/template-syntax%20%5Bdone%5D/dist",
-    },
+    // {
+    //   provide: APP_BASE_HREF,
+    //   useValue:
+    //     "js/angular/fundamentals/1_components-%26-templates/template-syntax%20%5Bdone%5D/dist",
+    // },
   ],
   bootstrap: [AppComponent],
 })
