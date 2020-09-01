@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --deployUrl=/js/angular/fundamentals/1_components-%26-templates/template-syntax%20%5Bdone%5D/dist/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
