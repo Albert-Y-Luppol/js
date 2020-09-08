@@ -1,0 +1,23 @@
+<h1 class="title">Pipes</h1>
+
+<hr />
+<p>The date of birth: {{ birthday | date: format }}</p>
+<button (click)="toggleDateFormat()">Toggle format</button>
+
+<hr />
+<h2>Exponent Calculator</h2>
+<label
+  >Input Number:<br /><input [(ngModel)]="expCalcNum" type="number" /></label
+><br />
+<label
+  >Exponent to:<br /><input
+    [(ngModel)]="expCalcExp"
+    type="number"
+    value="10" /></label
+><br />
+<span>Result: {{ expCalcNum | exponentPipe: expCalcExp }}</span>
+
+<hr />
+<h2>Async and Rx pipes</h2>
+<p>Message: {{ message$ | async }}</p>
+<button (click)="resend()">Resend</button>

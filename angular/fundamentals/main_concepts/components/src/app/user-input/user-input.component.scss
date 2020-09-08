@@ -1,0 +1,9 @@
+.big-box {
+    overflow: scroll;
+    height: 60vh;
+    border: 1px solid yellow;
+
+    & div {
+        height: 200vh;
+    }
+}

@@ -1,0 +1,13 @@
+<h1 class="title">user input</h1>
+<input (keyup)="catchKey($event)" />
+<p>{{ keys }}</p>
+<input
+  #box
+  (keyup)="catchKey(box.value)"
+  (keyup.enter)="catchEnter(box.value)"
+  (blur)="updateVal(box.value)"
+/>
+<p>{{ keys }}</p>
+<div class="big-box" #bigBox (scroll)="changeBg(bigBox)">
+  <div>Passive scroll (check zone-flags)</div>
+</div>
