@@ -1,1 +1,38 @@
-<p>component-lifecycle works!</p>
+<h1 class="title">Component liefecycle</h1>
+<hr />
+<button (click)="toggleToggler()">Toggle</button> <span>{{ toggler }}</span>
+<hr />
+<app-oninit></app-oninit>
+<hr />
+<spy></spy>
+<hr />
+<label><input #heroNameInput (input)="heroName = heroNameInput.value" /></label
+><br />
+<label
+  ><input
+    #heroPowersInput
+    (input)="heroPowers = heroPowersInput.value" /></label
+><br />
+<on-change [heroName]="heroName" [heroPowers]="heroPowers"></on-change>
+<hr />
+<after-view></after-view>
+<hr />
+<after-content-parent></after-content-parent>
+<hr />
+
+<hr />
+<label
+  ><input
+    #heroDoCheckNameInput
+    (input)="heroDoCheckName = heroDoCheckNameInput.value" /></label
+><br />
+<label
+  ><input
+    #heroDoCheckPowersInput
+    (input)="heroDoCheckPowers = heroDoCheckPowersInput.value" /></label
+><br />
+<do-check
+  [heroName]="heroDoCheckName"
+  [heroPowers]="heroDoCheckPowers"
+></do-check>
+<hr />

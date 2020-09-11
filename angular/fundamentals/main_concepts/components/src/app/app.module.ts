@@ -16,6 +16,16 @@ import { ComponentStylesComponent } from './component-styles/component-styles.co
 import { DynamicComponensComponent } from './dynamic-componens/dynamic-componens.component';
 import { AngularElementsComponent } from './angular-elements/angular-elements.component';
 import { ExponentPipe } from './pipes/exponent-pipe.pipe';
+import { OninitComponent } from './component-lifecycle/oninit/oninit.component';
+import { SpyComponent } from './component-lifecycle/with-directives/spy.component';
+import { SpyDirective } from './component-lifecycle/with-directives/spy.directive';
+import { OnChangesComp } from './component-lifecycle/onchange/onchange.component';
+import { ChildViewComp } from './component-lifecycle/after-view/child-view/child-view.component';
+import { AfterViewComponent } from './component-lifecycle/after-view/after-view.component';
+import { AfterContentChild } from './component-lifecycle/after-content/after-content-child.component';
+import { AfterContentParent } from './component-lifecycle/after-content/after-content-parent.component';
+import { AfterContent } from './component-lifecycle/after-content/after-content.component';
+import { DoCheckComp } from './component-lifecycle/do-check/do-check.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +39,16 @@ import { ExponentPipe } from './pipes/exponent-pipe.pipe';
     DynamicComponensComponent,
     AngularElementsComponent,
     ExponentPipe,
+    OninitComponent,
+    SpyComponent,
+    SpyDirective,
+    OnChangesComp,
+    ChildViewComp,
+    AfterViewComponent,
+    AfterContentChild,
+    AfterContentParent,
+    AfterContent,
+    DoCheckComp,
   ],
   imports: [
     BrowserModule,

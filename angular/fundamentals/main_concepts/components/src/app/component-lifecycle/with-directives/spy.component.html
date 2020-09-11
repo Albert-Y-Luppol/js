@@ -1,0 +1,7 @@
+<input #heroInput />
+<button (click)="addHero(heroInput.value); heroInput.value = ''">
+  Add Hero</button
+><button (click)="resetHeroes()">Reset Heroes</button>
+<div *ngFor="let hero of heroes; index as index" [heroNumber]="index + 1" spy>
+  {{ hero }}
+</div>
