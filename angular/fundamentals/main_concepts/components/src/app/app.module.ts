@@ -26,6 +26,8 @@ import { AfterContentChild } from './component-lifecycle/after-content/after-con
 import { AfterContentParent } from './component-lifecycle/after-content/after-content-parent.component';
 import { AfterContent } from './component-lifecycle/after-content/after-content.component';
 import { DoCheckComp } from './component-lifecycle/do-check/do-check.component';
+import { InteractionParentComponent } from './component-interaction/interaction-parent/interaction-parent.component';
+import { InteractionChildComponent } from './component-interaction/interaction-child/interaction-child.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { DoCheckComp } from './component-lifecycle/do-check/do-check.component';
     AfterContentParent,
     AfterContent,
     DoCheckComp,
+    InteractionParentComponent,
+    InteractionChildComponent,
   ],
   imports: [
     BrowserModule,

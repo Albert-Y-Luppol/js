@@ -1,0 +1,6 @@
+<h3>{{ master }} controls {{ heroes.length }} heroes</h3>
+<app-interaction-child
+  *ngFor="let hero of heroes"
+  [hero]="hero"
+  [master]="master"
+></app-interaction-child>

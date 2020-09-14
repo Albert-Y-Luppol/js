@@ -18,6 +18,7 @@ export class DoCheckComp implements DoCheck {
   noChangeCount: number = 0;
 
   ngDoCheck() {
+    console.log('DoCheck fire!');
     if (this.heroName !== this.oldHeroName) {
       this.changeDetected = true;
       this.log.push(
