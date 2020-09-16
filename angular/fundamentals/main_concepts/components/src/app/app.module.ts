@@ -28,6 +28,11 @@ import { AfterContent } from './component-lifecycle/after-content/after-content.
 import { DoCheckComp } from './component-lifecycle/do-check/do-check.component';
 import { InteractionParentComponent } from './component-interaction/interaction-parent/interaction-parent.component';
 import { InteractionChildComponent } from './component-interaction/interaction-child/interaction-child.component';
+import { InteractionSetterParentComponent } from './component-interaction/interaction-setter-parent/interaction-setter-parent.component';
+import { InteractionSetterChildComponent } from './component-interaction/interaction-setter-child/interaction-setter-child.component';
+import { InteractionChildCustomComponent } from './component-interaction/interaction-child-custom/interaction-child-custom.component';
+import { InputWithOnchangeComponent } from './component-interaction/input-with-onchange/input-with-onchange.component';
+import { ChildInteractionOnchangeComponent } from './component-interaction/input-with-onchange/child-interaction-onchange/child-interaction-onchange.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +58,11 @@ import { InteractionChildComponent } from './component-interaction/interaction-c
     DoCheckComp,
     InteractionParentComponent,
     InteractionChildComponent,
+    InteractionSetterParentComponent,
+    InteractionSetterChildComponent,
+    InteractionChildCustomComponent,
+    InputWithOnchangeComponent,
+    ChildInteractionOnchangeComponent,
   ],
   imports: [
     BrowserModule,
