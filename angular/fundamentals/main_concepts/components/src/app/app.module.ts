@@ -33,6 +33,11 @@ import { InteractionSetterChildComponent } from './component-interaction/interac
 import { InteractionChildCustomComponent } from './component-interaction/interaction-child-custom/interaction-child-custom.component';
 import { InputWithOnchangeComponent } from './component-interaction/input-with-onchange/input-with-onchange.component';
 import { ChildInteractionOnchangeComponent } from './component-interaction/input-with-onchange/child-interaction-onchange/child-interaction-onchange.component';
+import { ParentListenChildComponent } from './component-interaction/parent-listen-child/parent-listen-child.component';
+import { ParentListenChildChildComponent } from './component-interaction/parent-listen-child/parent-listen-child-child/parent-listen-child-child.component';
+import { ParentListenChildVoteTakerComponent } from './component-interaction/parent-listen-child/parent-listen-child-vote-taker/parent-listen-child-vote-taker.component';
+import { InteractionViaLocalVariablesComponent } from './component-interaction/interaction-via-local-variables/interaction-via-local-variables.component';
+import { InteractionCountdownTimerComponent } from './component-interaction/interaction-via-local-variables/interaction-countdown-timer/interaction-countdown-timer.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +68,11 @@ import { ChildInteractionOnchangeComponent } from './component-interaction/input
     InteractionChildCustomComponent,
     InputWithOnchangeComponent,
     ChildInteractionOnchangeComponent,
+    ParentListenChildComponent,
+    ParentListenChildChildComponent,
+    ParentListenChildVoteTakerComponent,
+    InteractionViaLocalVariablesComponent,
+    InteractionCountdownTimerComponent,
   ],
   imports: [
     BrowserModule,

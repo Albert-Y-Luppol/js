@@ -8,9 +8,12 @@ describe('workspace-project App', () => {
   //   page = new AppPage();
   // });
 
+  console.clear();
+
   const heroNames = ['Dr Q', 'Magneta', 'Bombasto'];
   const masterName = 'Albert';
   browser.get('./component-interaction');
+
   it('should pass properties to children properly', () => {
     const parent = element.all(by.tagName('app-interaction-parent')).get(0);
     const heroes = parent.all(by.tagName('app-interaction-child'));
@@ -107,6 +110,69 @@ describe('workspace-project App', () => {
       count: logs.count(),
     };
   }
+
+  it('should not emit the event initially', () => {
+    const voteLabel = element(by.tagName('app-parent-listen-child-vote-taker'))
+      .element(by.tagName('h4'))
+      .getText();
+    expect(voteLabel).toBe('Agree: 0, Disagree: 0');
+  });
+
+  it('should process Agree vote', () => {
+    const firstAgreeBtn = element
+      .all(by.tagName('app-parent-listen-child-child'))
+      .get(0)
+      .all(by.tagName('button'))
+      .get(0);
+    firstAgreeBtn.click().then(() => {
+      const voteLabel = element(
+        by.tagName('app-parent-listen-child-vote-taker')
+      )
+        .element(by.tagName('h4'))
+        .getText();
+      expect(voteLabel).toBe('Agree: 1, Disagree: 0');
+    });
+  });
+
+  it('should process Disagree vote', () => {
+    const secondDisagreeBtn = element
+      .all(by.tagName('app-parent-listen-child-child'))
+      .get(1)
+      .all(by.tagName('button'))
+      .get(1);
+    secondDisagreeBtn.click().then(() => {
+      const voteLabel = element(
+        by.tagName('app-parent-listen-child-vote-taker')
+      )
+        .element(by.tagName('h4'))
+        .getText();
+      expect(voteLabel).toBe('Agree: 1, Disagree: 1');
+    });
+  });
+
+  it('timer and parent seconds should match', () => {
+    const parent = element(by.tagName('app-interaction-via-local-variables'));
+    const message = parent
+      .element(by.tagName('app-interaction-countdown-timer'))
+      .getText();
+    browser.sleep(1100);
+    const seconds = parent
+      .element(by.className('interaction__seconds'))
+      .getText();
+    expect(message).toContain(seconds);
+  });
+
+  it('should stop the countdown', () => {
+    const parent = element(by.tagName('app-interaction-via-local-variables'));
+    const stopBtn = parent.all(by.tagName('button')).get(1);
+
+    stopBtn.click().then(() => {
+      const message = parent
+        .element(by.tagName('app-interaction-countdown-timer'))
+        .getText();
+      expect(message).toContain('Holding');
+    });
+  });
   // afterEach(async () => {
   //   // Assert that there are no errors emitted from the browser
   //   const logs = await browser.manage().logs().get(logging.Type.BROWSER);

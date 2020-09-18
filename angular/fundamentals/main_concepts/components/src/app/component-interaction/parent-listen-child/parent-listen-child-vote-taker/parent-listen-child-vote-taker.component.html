@@ -1,0 +1,8 @@
+<h3>Should mankind colonize the Universe?</h3>
+<h4>Agree: {{ agreed }}, Disagree: {{ disagreed }}</h4>
+<app-parent-listen-child-child
+  *ngFor="let voter of voters"
+  [name]="voter"
+  (voted)="onVoted($event)"
+>
+</app-parent-listen-child-child>
