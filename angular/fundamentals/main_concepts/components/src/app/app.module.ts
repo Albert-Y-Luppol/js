@@ -38,6 +38,7 @@ import { ParentListenChildChildComponent } from './component-interaction/parent-
 import { ParentListenChildVoteTakerComponent } from './component-interaction/parent-listen-child/parent-listen-child-vote-taker/parent-listen-child-vote-taker.component';
 import { InteractionViaLocalVariablesComponent } from './component-interaction/interaction-via-local-variables/interaction-via-local-variables.component';
 import { InteractionCountdownTimerComponent } from './component-interaction/interaction-via-local-variables/interaction-countdown-timer/interaction-countdown-timer.component';
+import { InteractionViewChildComponent } from './component-interaction/interaction-view-child/interaction-view-child.component';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { InteractionCountdownTimerComponent } from './component-interaction/inte
     ParentListenChildVoteTakerComponent,
     InteractionViaLocalVariablesComponent,
     InteractionCountdownTimerComponent,
+    InteractionViewChildComponent,
   ],
   imports: [
     BrowserModule,
