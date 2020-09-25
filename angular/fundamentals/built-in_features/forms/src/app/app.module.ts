@@ -15,6 +15,13 @@ import { ReactiveFavoriteColorComponent } from './intro/reactive-favorite-color/
 import { TemplateDrivenFavoriteColorComponent } from './intro/template-driven-favorite-color/template-driven-favorite-color.component';
 import { NameEditorComponent } from './reactive-forms/name-editor/name-editor.component';
 import { ProfileEditorComponent } from './reactive-forms/profile-editor/profile-editor.component';
+import { TemplateDrivenValidatorComponent } from './validation/template-driven-validator/template-driven-validator.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsValidationComponent } from './validation/reactive-forms-validation/reactive-forms-validation.component';
+import { ForbiddenNameValidatorDirective } from './validation/template-driven-validator/forbidden-name.directive';
+import { IdentityRevealedValidatorDirective } from './validation/template-driven-validator/identity-revealed.directive';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { UniqueAlterEgoValidatorDirective } from './validation/template-driven-validator/uniqueAlterEgoValidator';
 
 @NgModule({
   declarations: [
@@ -27,6 +34,12 @@ import { ProfileEditorComponent } from './reactive-forms/profile-editor/profile-
     TemplateDrivenFavoriteColorComponent,
     NameEditorComponent,
     ProfileEditorComponent,
+    TemplateDrivenValidatorComponent,
+    ReactiveFormsValidationComponent,
+    ForbiddenNameValidatorDirective,
+    IdentityRevealedValidatorDirective,
+    SpinnerComponent,
+    UniqueAlterEgoValidatorDirective,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +49,7 @@ import { ProfileEditorComponent } from './reactive-forms/profile-editor/profile-
     MatSidenavModule,
     FormsModule,
     ReactiveFormsModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

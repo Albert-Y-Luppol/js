@@ -1,0 +1,46 @@
+<form #heroForm="ngForm" appIdentityRevealed>
+  <input
+    name="name"
+    class="form-control"
+    required
+    minlength="4"
+    appForbiddenName="tobby"
+    [(ngModel)]="nameVariable"
+    #name="ngModel"
+  />
+  <input
+    name="alterEgo"
+    class="form-control"
+    [(ngModel)]="alterEgoVariable"
+    #alterEgo="ngModel"
+    [ngModelOptions]="{ updateOn: 'blur' }"
+    appUniqueAlterEgo
+  />
+
+  <app-spinner *ngIf="heroForm.pending"></app-spinner>
+  <input
+    name="power"
+    class="form-control"
+    [(ngModel)]="powerVariable"
+    #power="ngModel"
+  />
+
+  <div
+    *ngIf="name.invalid && (name.dirty || name.touched)"
+    class="alert alert-danger"
+  >
+    <div *ngIf="name.errors.required">Name is required.</div>
+    <div *ngIf="name.errors.minlength">
+      Name must be at least 4 characters long.
+    </div>
+    <div *ngIf="name.errors.forbiddenName">Name cannot be Tobby.</div>
+  </div>
+  <div
+    *ngIf="
+      heroForm.errors?.identityRevealed && (heroForm.touched || heroForm.dirty)
+    "
+    class="cross-validation-error-message alert alert-danger"
+  >
+    Name cannot match alter ego.
+  </div>
+</form>
