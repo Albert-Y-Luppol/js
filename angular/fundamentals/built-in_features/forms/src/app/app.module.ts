@@ -22,6 +22,7 @@ import { ForbiddenNameValidatorDirective } from './validation/template-driven-va
 import { IdentityRevealedValidatorDirective } from './validation/template-driven-validator/identity-revealed.directive';
 import { SpinnerComponent } from './spinner/spinner.component';
 import { UniqueAlterEgoValidatorDirective } from './validation/template-driven-validator/uniqueAlterEgoValidator';
+import { DynamicFormQuestionComponent } from './dynamic-forms/dynamic-form-question/dynamic-form-question.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { UniqueAlterEgoValidatorDirective } from './validation/template-driven-v
     IdentityRevealedValidatorDirective,
     SpinnerComponent,
     UniqueAlterEgoValidatorDirective,
+    DynamicFormQuestionComponent,
   ],
   imports: [
     BrowserModule,

@@ -23,7 +23,7 @@ export class GetMainMenuItemsService {
         'aria-label': 'Validate form input',
       },
       {
-        text: 'Building Dynamics Forms',
+        text: 'Building Dynamic Forms',
         routerLink: '/building-dynamics-forms',
         'aria-label': 'Building Dynamics Forms',
       },
