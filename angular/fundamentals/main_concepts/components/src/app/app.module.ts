@@ -39,6 +39,9 @@ import { ParentListenChildVoteTakerComponent } from './component-interaction/par
 import { InteractionViaLocalVariablesComponent } from './component-interaction/interaction-via-local-variables/interaction-via-local-variables.component';
 import { InteractionCountdownTimerComponent } from './component-interaction/interaction-via-local-variables/interaction-countdown-timer/interaction-countdown-timer.component';
 import { InteractionViewChildComponent } from './component-interaction/interaction-view-child/interaction-view-child.component';
+import { InteractionViaServiceComponent } from './component-interaction/interaction-via-service/interaction-via-service.component';
+import { MissionControlComponent } from './component-interaction/interaction-via-service/mission-control/mission-control.component';
+import { AstronautComponent } from './component-interaction/interaction-via-service/astronaut/astronaut.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +78,9 @@ import { InteractionViewChildComponent } from './component-interaction/interacti
     InteractionViaLocalVariablesComponent,
     InteractionCountdownTimerComponent,
     InteractionViewChildComponent,
+    InteractionViaServiceComponent,
+    MissionControlComponent,
+    AstronautComponent,
   ],
   imports: [
     BrowserModule,

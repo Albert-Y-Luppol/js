@@ -173,6 +173,47 @@ describe('workspace-project App', () => {
       expect(message).toContain('Holding');
     });
   });
+
+  it('should announce a mission', () => {
+    const missionControl = element(by.tagName('app-mission-control'));
+    const announceButton = missionControl.all(by.tagName('button')).get(0);
+    announceButton.click().then(() => {
+      const history = missionControl.all(by.tagName('li'));
+      expect(history.count()).toBe(1);
+      expect(history.get(0).getText()).toMatch(/Mission.* announced/);
+    });
+  });
+
+  it('should confirm the mission by Lovell', () => {
+    testConfirmMission(1, 2, 'Lovell');
+  });
+
+  it('should confirm the mission by Haise', () => {
+    testConfirmMission(3, 3, 'Haise');
+  });
+
+  it('should confirm the mission by Swigert', () => {
+    testConfirmMission(2, 4, 'Swigert');
+  });
+
+  function testConfirmMission(
+    buttonIndex: number,
+    expectedLogCount: number,
+    astronaut: string
+  ) {
+    const confirmedLog = ' confirmed the mission';
+    const missionControl = element(by.tagName('app-mission-control'));
+    const confirmButton = missionControl
+      .all(by.tagName('button'))
+      .get(buttonIndex);
+    confirmButton.click().then(() => {
+      const history = missionControl.all(by.tagName('li'));
+      expect(history.count()).toBe(expectedLogCount);
+      expect(history.get(expectedLogCount - 1).getText()).toBe(
+        astronaut + confirmedLog
+      );
+    });
+  }
   // afterEach(async () => {
   //   // Assert that there are no errors emitted from the browser
   //   const logs = await browser.manage().logs().get(logging.Type.BROWSER);
