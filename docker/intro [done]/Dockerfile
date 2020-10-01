@@ -14,4 +14,4 @@ COPY server.js /code/server.js
 
 # RUN ng build
 
-CMD ["node", "server.js"]
+CMD ["npm", "start"]

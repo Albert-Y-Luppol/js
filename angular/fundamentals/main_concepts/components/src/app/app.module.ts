@@ -42,6 +42,22 @@ import { InteractionViewChildComponent } from './component-interaction/interacti
 import { InteractionViaServiceComponent } from './component-interaction/interaction-via-service/interaction-via-service.component';
 import { MissionControlComponent } from './component-interaction/interaction-via-service/mission-control/mission-control.component';
 import { AstronautComponent } from './component-interaction/interaction-via-service/astronaut/astronaut.component';
+import { GlobalVsLocalComponent } from './component-styles/global-vs-local/global-vs-local.component';
+import { AutonomiousScopeComponent } from './component-styles/autonomious-scope/autonomious-scope.component';
+import { AutonomiousScopeCheckerComponent } from './component-styles/autonomious-scope-checker/autonomious-scope-checker.component';
+import { AutonomiousChildComponent } from './component-styles/autonomious-scope/autonomious-child/autonomious-child.component';
+import { HostPseudoParentComponent } from './component-styles/host-pseudo/host-pseudo-parent/host-pseudo-parent.component';
+import { HostPseudoSiblingComponent } from './component-styles/host-pseudo/host-pseudo-sibling/host-pseudo-sibling.component';
+import { HostPseudoChildComponent } from './component-styles/host-pseudo/host-pseudo-parent/host-pseudo-child/host-pseudo-child.component';
+import { HostPseudoComponent } from './component-styles/host-pseudo/host-pseudo.component';
+import { HostChildOfChildComponent } from './component-styles/host-pseudo/host-pseudo-parent/host-pseudo-child/host-child-of-child/host-child-of-child.component';
+import { HostContextPseudoComponent } from './component-styles/host-context-pseudo/host-context-pseudo.component';
+import { HostContextParentComponent } from './component-styles/host-context-pseudo/host-context-parent/host-context-parent.component';
+import { HostContextSiblingComponent } from './component-styles/host-context-pseudo/host-context-sibling/host-context-sibling.component';
+import { HostContextChildComponent } from './component-styles/host-context-pseudo/host-context-parent/host-context-child/host-context-child.component';
+import { HostContextChildChildComponent } from './component-styles/host-context-pseudo/host-context-parent/host-context-child/host-context-child-child/host-context-child-child.component';
+import { HostContentBrotherComponent } from './component-styles/host-context-pseudo/host-context-parent/host-content-brother/host-content-brother.component';
+import { HostPseudoBrotherComponent } from './component-styles/host-pseudo/host-pseudo-parent/host-pseudo-brother/host-pseudo-brother.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +97,22 @@ import { AstronautComponent } from './component-interaction/interaction-via-serv
     InteractionViaServiceComponent,
     MissionControlComponent,
     AstronautComponent,
+    GlobalVsLocalComponent,
+    AutonomiousScopeComponent,
+    AutonomiousScopeCheckerComponent,
+    AutonomiousChildComponent,
+    HostPseudoParentComponent,
+    HostPseudoSiblingComponent,
+    HostPseudoChildComponent,
+    HostPseudoComponent,
+    HostChildOfChildComponent,
+    HostContextPseudoComponent,
+    HostContextParentComponent,
+    HostContextSiblingComponent,
+    HostContextChildComponent,
+    HostContextChildChildComponent,
+    HostContentBrotherComponent,
+    HostPseudoBrotherComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,4 +125,4 @@ import { AstronautComponent } from './component-interaction/interaction-via-serv
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

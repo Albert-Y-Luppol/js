@@ -1,27 +1,5 @@
-//variables
-$color__main: rgb(49, 187, 153);
-$color__support: seashell;
-$color__outline: rgb(177, 81, 241);
-
-//mixins
-@mixin tr {
-  transition: all 0.25s ease-in-out;
-}
-
-@mixin hover {
-  @include tr;
-  &:hover,
-  &:focus,
-  &:active {
-    @content;
-  }
-}
-
-.container {
-  min-height: 100vh;
-  position: relative;
-  padding: 1rem;
-}
+@import "../variables.scss";
+@import "../mixins.scss";
 
 .main-menu {
   &__menu {
