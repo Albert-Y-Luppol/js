@@ -3,21 +3,13 @@
     <h2 class="main-menu__title">Components</h2>
     <ul class="main-menu__list">
       <li *ngFor="let menuItem of mainMenuItems">
-        <a
-          class="main-menu__item"
-          routerLink="{{ menuItem.routerLink }}"
-          aria-label="{{ menuItem['aria-label'] }}"
-          >{{ menuItem.text }}</a
-        >
+        <a class="main-menu__item" routerLink="{{ menuItem.routerLink }}">{{ menuItem.text }}</a>
       </li>
     </ul>
   </mat-drawer>
   <mat-drawer-content>
-    <div
-      class="main-menu__burger"
-      (click)="mainMenu.toggle()"
-      [ngClass]="mainMenu.opened ? 'main-menu__burger-opened' : ''"
-    >
+    <div class="main-menu__burger" (click)="mainMenu.toggle()"
+      [ngClass]="mainMenu.opened ? 'main-menu__burger-opened' : ''">
       <div class="main-menu__burger-logo">
         <div class="main-menu__burger-logo-item"></div>
         <div class="main-menu__burger-logo-item"></div>

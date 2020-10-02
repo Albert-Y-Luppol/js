@@ -58,6 +58,14 @@ import { HostContextChildComponent } from './component-styles/host-context-pseud
 import { HostContextChildChildComponent } from './component-styles/host-context-pseudo/host-context-parent/host-context-child/host-context-child-child/host-context-child-child.component';
 import { HostContentBrotherComponent } from './component-styles/host-context-pseudo/host-context-parent/host-content-brother/host-content-brother.component';
 import { HostPseudoBrotherComponent } from './component-styles/host-pseudo/host-pseudo-parent/host-pseudo-brother/host-pseudo-brother.component';
+import { AdDirective } from './dynamic-componens/ad.directive';
+import { AdBannerComponent } from './dynamic-componens/ad-banner/ad-banner.component';
+import { HeroJobAdComponent } from './dynamic-componens/hero-job-ad/hero-job-ad.component';
+import { HeroProfileComponent } from './dynamic-componens/hero-profile/hero-profile.component';
+import { SwitchComponent } from './dynamic-componens/switch/switch.component';
+import { SwitchLeftComponent } from './dynamic-componens/switch/switch-left.component';
+import { SwitchRightComponent } from './dynamic-componens/switch/switch-right.component';
+import { SwitchDirective } from './dynamic-componens/switch/switch.directive';
 
 @NgModule({
   declarations: [
@@ -113,6 +121,14 @@ import { HostPseudoBrotherComponent } from './component-styles/host-pseudo/host-
     HostContextChildChildComponent,
     HostContentBrotherComponent,
     HostPseudoBrotherComponent,
+    AdDirective,
+    AdBannerComponent,
+    HeroJobAdComponent,
+    HeroProfileComponent,
+    SwitchComponent,
+    SwitchLeftComponent,
+    SwitchRightComponent,
+    SwitchDirective,
   ],
   imports: [
     BrowserModule,

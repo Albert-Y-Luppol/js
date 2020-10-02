@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { AdItem } from './ad-item';
+
+import { AdService } from './ad.service';
+
+import { SwitchComponentItem } from './switch/switch-component-item';
+import { SwitchComponentService } from './switch/switch-component.service'
 
 @Component({
   selector: 'app-dynamic-componens',
@@ -7,9 +13,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DynamicComponensComponent implements OnInit {
 
-  constructor() { }
+  ads: AdItem[];
+  componentItems: SwitchComponentItem[]
+
+  constructor(private adService: AdService,
+    private switchComponentService: SwitchComponentService) { }
 
   ngOnInit(): void {
+    this.ads = this.adService.getAds();
+    this.componentItems = this.switchComponentService.getComponents();
   }
 
 }
