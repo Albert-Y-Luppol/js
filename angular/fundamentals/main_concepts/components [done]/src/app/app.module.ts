@@ -66,6 +66,9 @@ import { SwitchComponent } from './dynamic-componens/switch/switch.component';
 import { SwitchLeftComponent } from './dynamic-componens/switch/switch-left.component';
 import { SwitchRightComponent } from './dynamic-componens/switch/switch-right.component';
 import { SwitchDirective } from './dynamic-componens/switch/switch.directive';
+import { PopupComponent } from './angular-elements/popup/popup.component';
+
+import { PopupService } from './angular-elements/popup.service';
 
 @NgModule({
   declarations: [
@@ -129,6 +132,7 @@ import { SwitchDirective } from './dynamic-componens/switch/switch.directive';
     SwitchLeftComponent,
     SwitchRightComponent,
     SwitchDirective,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -138,7 +142,8 @@ import { SwitchDirective } from './dynamic-componens/switch/switch.directive';
     MatSidenavModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [PopupService],
   bootstrap: [AppComponent],
+  entryComponents: [PopupComponent]
 })
 export class AppModule { }
