@@ -1,0 +1,13 @@
+<h1 class="title">Attribute Directives</h1>
+<hr>
+<h2>appHighlight</h2>
+<input type="text" #highlightColor (input)="highlightColor.value = $event.target.value" placeholder="Enter Color"><br>
+<br>
+<div>
+    <input type="radio" name="colors" (click)="highlightColor.value='lightgreen'">Green
+    <input type="radio" name="colors" (click)="highlightColor.value='yellow'">Yellow
+    <input type="radio" name="colors" (click)="highlightColor.value='cyan'">Cyan
+</div>
+
+<br>
+<p [appHighlight]='highlightColor.value' defaultColor="violet">Highlight me!</p>
