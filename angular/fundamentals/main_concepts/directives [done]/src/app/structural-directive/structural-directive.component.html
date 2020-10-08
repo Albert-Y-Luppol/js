@@ -1,0 +1,39 @@
+<h1 class="title">Structural Directives</h1>
+<hr>
+<h2>{{ngContainer}}</h2>
+<div>
+    Pick your favorite hero by spans container
+    (<label><input type="checkbox" checked (change)="showSad = !showSad">show sad</label>)
+</div>
+<select [(ngModel)]="hero">
+    <span *ngFor="let h of heroes">
+        <span *ngIf="showSad || h.emotion !== 'sad'">
+            <option [ngValue]="h">{{h.name}} ({{h.emotion}})</option>
+        </span>
+    </span>
+</select>
+<br>
+<br>
+<div>
+    Pick your favorite hero by ng-container
+    (<label><input type="checkbox" checked (change)="showSad = !showSad">show sad</label>)
+</div>
+<select [(ngModel)]="hero">
+    <ng-container *ngFor="let h of heroes">
+        <ng-container *ngIf="showSad || h.emotion !== 'sad'">
+            <option [ngValue]="h">{{h.name}} ({{h.emotion}})</option>
+        </ng-container>
+    </ng-container>
+</select>
+<br>
+<hr>
+<h2>Custom structural directive "appUnless"</h2>
+<button (click)="condition = !condition">Toggle condition</button>
+<p *appUnless="condition">
+    (A) This paragraph is displayed because the condition is false.
+</p>
+
+<p *appUnless="!condition">
+    (B) Although the condition is true,
+    this paragraph is displayed because appUnless is set to false.
+</p>

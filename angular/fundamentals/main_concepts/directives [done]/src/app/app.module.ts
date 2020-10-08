@@ -12,6 +12,7 @@ import { AttributeDirectiveComponent } from './attribute-directive/attribute-dir
 import { StructuralDirectiveComponent } from './structural-directive/structural-directive.component';
 
 import { HighlightDirective } from './attribute-directive/highlight.direcrive';
+import { UnlessDirective } from './structural-directive/unless.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HighlightDirective } from './attribute-directive/highlight.direcrive';
     BuiltInDirectivesComponent,
     AttributeDirectiveComponent,
     StructuralDirectiveComponent,
-    HighlightDirective
+    HighlightDirective,
+    UnlessDirective,
   ],
   imports: [
     BrowserModule,
