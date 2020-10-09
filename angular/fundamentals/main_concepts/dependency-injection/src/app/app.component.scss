@@ -1,0 +1,143 @@
+//variables
+$color__main: rgb(49, 187, 153);
+$color__support: seashell;
+$color__outline: rgb(177, 81, 241);
+
+//mixins
+@mixin tr {
+  transition: all 0.25s ease-in-out;
+}
+
+@mixin hover {
+  @include tr;
+  &:hover,
+  &:focus,
+  &:active {
+    @content;
+  }
+}
+
+.container {
+  min-height: 100vh;
+  position: relative;
+  padding: 1rem;
+}
+
+.main-menu {
+  &__menu {
+    user-select: none;
+  }
+
+  &__container {
+    position: relative;
+  }
+  &__burger {
+    // outline: 1px solid orange;
+    z-index: 10;
+    user-select: none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 5rem;
+    height: 4rem;
+    overflow: hidden;
+    background: none;
+  }
+
+  &__burger-logo {
+    // outline: 1px solid purple;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    cursor: pointer;
+    display: inline-block;
+    @include hover {
+      transform: scale(1.1);
+      & .main-menu__burger-logo-item {
+        border-color: $color__main;
+      }
+    }
+  }
+  &__burger-logo-item {
+    position: absolute;
+    left: 50%;
+    width: 60%;
+    transform: translate(-50%, -50%);
+    &:nth-child(1) {
+      top: 30%;
+    }
+    &:nth-child(2) {
+      top: 50%;
+    }
+    &:nth-child(3) {
+      top: 70%;
+    }
+    @include tr;
+    border-bottom: 2px solid $color__support;
+  }
+
+  &__burger-opened {
+    & .main-menu__burger-logo-item:nth-child(1) {
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+    & .main-menu__burger-logo-item:nth-child(2) {
+      left: -100%;
+    }
+    & .main-menu__burger-logo-item:nth-child(3) {
+      top: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+  }
+
+  &__title {
+    color: $color__outline;
+    padding: 1rem;
+    letter-spacing: 0.1rem;
+    margin: 0;
+    &::after {
+      content: ":";
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  &__item {
+    color: $color__support;
+    max-width: 20rem;
+    text-decoration: none;
+    display: block;
+    word-wrap: break-word; /* IE 5.5-7 */
+    white-space: pre-wrap;
+    font-size: 1.6rem;
+    margin: 1rem;
+    margin-top: 3rem;
+    padding-left: 0rem;
+    padding-right: 3rem;
+    position: relative;
+    letter-spacing: 0.1rem;
+    line-height: 1.5;
+    &:before {
+      content: ">>";
+      transition: all 0.2s ease-in-out;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 1rem;
+      color: rgba($color: #000000, $alpha: 0);
+    }
+    @include hover {
+      padding-left: 3rem;
+      padding-right: 0rem;
+      color: $color__main;
+      &:before {
+        color: inherit;
+        transition: all 0.5s ease-in-out;
+      }
+    }
+  }
+}
