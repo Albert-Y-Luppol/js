@@ -13,8 +13,8 @@ export class GetMainMenuItemsService {
 
       },
       {
-        text: 'Hierarhial Injections',
-        routerLink: '/hierarhial-injections',
+        text: 'Hierarchial Injections',
+        routerLink: '/hierarchial-injections',
 
       },
       {
