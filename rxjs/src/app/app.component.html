@@ -1,0 +1,23 @@
+<mat-drawer-container class="main-menu__container">
+  <mat-drawer #mainMenu class="main-menu__menu" mode="side">
+    <h2 class="main-menu__title">RxJS</h2>
+    <ul class="main-menu__list">
+      <li *ngFor="let menuItem of mainMenuItems">
+        <a class="main-menu__item" routerLink="{{ menuItem.routerLink }}">{{ menuItem.text }}</a>
+      </li>
+    </ul>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="main-menu__burger" (click)="mainMenu.toggle()"
+      [ngClass]="mainMenu.opened ? 'main-menu__burger-opened' : ''">
+      <div class="main-menu__burger-logo">
+        <div class="main-menu__burger-logo-item"></div>
+        <div class="main-menu__burger-logo-item"></div>
+        <div class="main-menu__burger-logo-item"></div>
+      </div>
+    </div>
+    <main class="main-menu__content container">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-drawer-content>
+</mat-drawer-container>
