@@ -1,0 +1,7 @@
+<h3>Hero Tax Return</h3>
+<ul>
+    <li *ngFor="let hero of heroes | async" (click)="showTaxReturn(hero)">{{hero.name}}</li>
+</ul>
+
+<app-hero-tax-return *ngFor="let selected of selectedTaxReturn; let i = index" [taxReturn]='selected'
+    (close)="closeTaxReturn(i)"></app-hero-tax-return>

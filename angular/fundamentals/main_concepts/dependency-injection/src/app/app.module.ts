@@ -22,6 +22,10 @@ import { ChildHostComponent } from './hierarchial-injections/parent-host/host/ch
 import { RootComponent } from './hierarchial-injections/root/root.component';
 import { ChildComponent } from './hierarchial-injections/root/child/child.component';
 import { InspectorComponent } from './hierarchial-injections/root/child/inspector/inspector.component';
+import { UseCasesInjectionsComponent } from './hierarchial-injections/use-cases-injections/use-cases-injections.component';
+import { VillansListComponent } from './hierarchial-injections/use-cases-injections/villans-list/villans-list.component';
+import { MultipleEditSessionComponent } from './hierarchial-injections/use-cases-injections/multiple-edit-session/multiple-edit-session.component';
+import { HeroTaxReturnComponent } from './hierarchial-injections/use-cases-injections/multiple-edit-session/hero-tax-return/hero-tax-return.component';
 
 
 @NgModule({
@@ -42,6 +46,10 @@ import { InspectorComponent } from './hierarchial-injections/root/child/inspecto
     RootComponent,
     ChildComponent,
     InspectorComponent,
+    UseCasesInjectionsComponent,
+    VillansListComponent,
+    MultipleEditSessionComponent,
+    HeroTaxReturnComponent,
 
   ],
   imports: [
