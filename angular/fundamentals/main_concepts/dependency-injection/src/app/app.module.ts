@@ -26,6 +26,14 @@ import { UseCasesInjectionsComponent } from './hierarchial-injections/use-cases-
 import { VillansListComponent } from './hierarchial-injections/use-cases-injections/villans-list/villans-list.component';
 import { MultipleEditSessionComponent } from './hierarchial-injections/use-cases-injections/multiple-edit-session/multiple-edit-session.component';
 import { HeroTaxReturnComponent } from './hierarchial-injections/use-cases-injections/multiple-edit-session/hero-tax-return/hero-tax-return.component';
+import { ClassProvidersComponent } from './di-providers/class-providers/class-providers.component';
+import { AliasedClassComponent } from './di-providers/aliased-class/aliased-class.component';
+import { SilentLoggerComponent } from './di-providers/silent-logger/silent-logger.component';
+import { ValueProviderComponent } from './di-providers/value-provider/value-provider.component';
+import { HierarchyChildCheckComponent } from './di-providers/value-provider/hierarchy-child-check/hierarchy-child-check.component';
+import { FactoryProviderComponent } from './di-providers/factory-provider/factory-provider.component';
+import { heroServiceProvider } from './di-providers/services/hero.service.provider';
+import { HeroinoListComponent } from './di-providers/factory-provider/heroino-list/heroino-list.component';
 
 
 @NgModule({
@@ -50,6 +58,13 @@ import { HeroTaxReturnComponent } from './hierarchial-injections/use-cases-injec
     VillansListComponent,
     MultipleEditSessionComponent,
     HeroTaxReturnComponent,
+    ClassProvidersComponent,
+    AliasedClassComponent,
+    SilentLoggerComponent,
+    ValueProviderComponent,
+    HierarchyChildCheckComponent,
+    FactoryProviderComponent,
+    HeroinoListComponent,
 
   ],
   imports: [
