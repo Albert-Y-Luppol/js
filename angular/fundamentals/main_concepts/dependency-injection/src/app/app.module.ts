@@ -34,6 +34,15 @@ import { HierarchyChildCheckComponent } from './di-providers/value-provider/hier
 import { FactoryProviderComponent } from './di-providers/factory-provider/factory-provider.component';
 import { heroServiceProvider } from './di-providers/services/hero.service.provider';
 import { HeroinoListComponent } from './di-providers/factory-provider/heroino-list/heroino-list.component';
+import { AlexComponent } from './navigate-the-component-tree/alex/alex.component';
+import { CatchyComponent } from './navigate-the-component-tree/catchy/catchy.component';
+import { CraigComponent } from './navigate-the-component-tree/craig/craig.component';
+import { CarolComponent } from './navigate-the-component-tree/carol/carol.component';
+import { BarryComponent } from './navigate-the-component-tree/barry/barry.component';
+import { AliceComponent } from './navigate-the-component-tree/alice/alice.component';
+import { ChrisComponent } from './navigate-the-component-tree/chris/chris.component';
+import { BethComponent } from './navigate-the-component-tree/beth/beth.component';
+import { BobComponent } from './navigate-the-component-tree/bob/bob.component';
 
 
 @NgModule({
@@ -65,6 +74,15 @@ import { HeroinoListComponent } from './di-providers/factory-provider/heroino-li
     HierarchyChildCheckComponent,
     FactoryProviderComponent,
     HeroinoListComponent,
+    AlexComponent,
+    CatchyComponent,
+    CraigComponent,
+    CarolComponent,
+    BarryComponent,
+    AliceComponent,
+    ChrisComponent,
+    BethComponent,
+    BobComponent,
 
   ],
   imports: [
