@@ -16,6 +16,11 @@ export class GetMainMenuItemsService {
         text: 'Nesting routing',
         routerLink: '/nested',
 
+      },
+      {
+        text: 'Query params',
+        routerLink: '/query-params',
+
       }
     ];
     return items;
