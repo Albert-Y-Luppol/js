@@ -11,6 +11,11 @@ export class GetMainMenuItemsService {
         text: 'Introduction',
         routerLink: '/introduction',
 
+      },
+      {
+        text: 'Nesting routing',
+        routerLink: '/nested',
+
       }
     ];
     return items;

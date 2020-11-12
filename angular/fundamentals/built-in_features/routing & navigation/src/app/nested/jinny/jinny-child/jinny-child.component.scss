@@ -1,0 +1,24 @@
+.fire{
+  padding: 1rem;
+  text-align: center;
+  color: orangered;
+  text-transform: uppercase;
+}
+
+.link{
+   color: #80bdff;
+  padding: 1rem 3rem;
+  margin: 1rem auto;
+  background: rgba(49, 187, 153,0.2);
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+
+  &:hover, &:active, &:focus{
+    color: white;
+    background: rgba(49, 187, 153,1);
+  }
+}
+
+.container{
+  display: flex;
+}

@@ -9,12 +9,19 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatSidenavModule } from "@angular/material/sidenav";
 
 import { Err404 } from './err404/err404.component';
+import { NestedComponent } from './nested/nested.component';
+import { AlexChildComponent } from './nested/alex-child/alex-child.component';
+import { TomChildComponent } from './nested/tom-child/tom-child.component';
+import {JinnyModule} from "./nested/jinny/jinny.module";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     Err404,
+    NestedComponent,
+    AlexChildComponent,
+    TomChildComponent,
 
   ],
   imports: [
@@ -24,6 +31,7 @@ import { Err404 } from './err404/err404.component';
     MatIconModule,
     MatSidenavModule,
     FormsModule,
+    JinnyModule
   ],
   providers: [
   ],
