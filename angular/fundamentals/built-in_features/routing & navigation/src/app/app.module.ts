@@ -8,22 +8,20 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatIconModule } from "@angular/material/icon";
 import { MatSidenavModule } from "@angular/material/sidenav";
 
-import { Err404 } from './err404/err404.component';
 import { NestedComponent } from './nested/nested.component';
 import { AlexChildComponent } from './nested/alex-child/alex-child.component';
 import { TomChildComponent } from './nested/tom-child/tom-child.component';
 import {JinnyModule} from "./nested/jinny/jinny.module";
-import { AccessingQueryParamsComponent } from './accessing-query-params/accessing-query-params.component';
+import {AccessingQueryParamsModule} from "./accessing-query-params/accessing-query-params.module";
+import {WildcardModule} from "./wildcard/wildcard.module";
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    Err404,
     NestedComponent,
     AlexChildComponent,
     TomChildComponent,
-    AccessingQueryParamsComponent,
 
   ],
   imports: [
@@ -33,7 +31,9 @@ import { AccessingQueryParamsComponent } from './accessing-query-params/accessin
     MatIconModule,
     MatSidenavModule,
     FormsModule,
-    JinnyModule
+    JinnyModule,
+    AccessingQueryParamsModule,
+    WildcardModule
   ],
   providers: [
   ],

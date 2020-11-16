@@ -1,1 +1,12 @@
-<p>accessing-query-params works!</p>
+<div class="container">
+<h1 class="title">Accessing query params</h1>
+<h2>Heroes</h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes$ | async" [class.selected]="hero.id == heroId">
+    <a [routerLink]="['/hero', hero.id]">
+      <span class="badge">{{hero.id}}}</span>
+      {{hero.name}}
+    </a>
+  </li>
+</ul>
+</div>
