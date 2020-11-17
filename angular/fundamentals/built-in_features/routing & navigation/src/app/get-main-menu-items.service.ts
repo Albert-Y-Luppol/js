@@ -21,6 +21,11 @@ export class GetMainMenuItemsService {
         text: 'Query params',
         routerLink: '/query-params',
 
+      },
+      {
+        text: 'Lazy loading',
+        routerLink: '/lazy',
+
       }
     ];
     return items;

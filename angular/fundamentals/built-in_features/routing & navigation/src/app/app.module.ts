@@ -11,7 +11,6 @@ import { MatSidenavModule } from "@angular/material/sidenav";
 import { NestedComponent } from './nested/nested.component';
 import { AlexChildComponent } from './nested/alex-child/alex-child.component';
 import { TomChildComponent } from './nested/tom-child/tom-child.component';
-import {JinnyModule} from "./nested/jinny/jinny.module";
 import {AccessingQueryParamsModule} from "./accessing-query-params/accessing-query-params.module";
 import {WildcardModule} from "./wildcard/wildcard.module";
 
@@ -31,7 +30,6 @@ import {WildcardModule} from "./wildcard/wildcard.module";
     MatIconModule,
     MatSidenavModule,
     FormsModule,
-    JinnyModule,
     AccessingQueryParamsModule,
     WildcardModule
   ],

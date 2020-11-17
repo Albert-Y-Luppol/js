@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import {Routes, RouterModule, PreloadAllModules} from "@angular/router";
 
 import { IntroductionComponent } from './introduction/introduction.component';
 import {NestedComponent} from "./nested/nested.component";
@@ -14,11 +14,12 @@ const routes: Routes = [
       {path: "tom", component: TomChildComponent},
       {path: "jinny", loadChildren: ()=> import('./nested/jinny/jinny.module').then(m=>m.JinnyModule)}
     ]},
+  {path: 'lazy', loadChildren: ()=> import('./lazy-load/lazy-load.module').then(m => m.LazyLoadModule)},
   { path: "", redirectTo: "/introduction", pathMatch: "full" },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule],
 })
 export class AppRoutingModule { }
