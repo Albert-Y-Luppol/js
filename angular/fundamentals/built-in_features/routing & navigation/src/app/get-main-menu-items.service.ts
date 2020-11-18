@@ -26,6 +26,11 @@ export class GetMainMenuItemsService {
         text: 'Lazy loading',
         routerLink: '/lazy',
 
+      },
+      {
+        text: 'Auth',
+        routerLink: '/auth',
+
       }
     ];
     return items;

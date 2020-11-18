@@ -5,6 +5,7 @@ import { IntroductionComponent } from './introduction/introduction.component';
 import {NestedComponent} from "./nested/nested.component";
 import {AlexChildComponent} from "./nested/alex-child/alex-child.component";
 import {TomChildComponent} from "./nested/tom-child/tom-child.component";
+import {AuthGuard} from "./auth/auth.guard";
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
       {path: "jinny", loadChildren: ()=> import('./nested/jinny/jinny.module').then(m=>m.JinnyModule)}
     ]},
   {path: 'lazy', loadChildren: ()=> import('./lazy-load/lazy-load.module').then(m => m.LazyLoadModule)},
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule), canLoad: [AuthGuard] },
   { path: "", redirectTo: "/introduction", pathMatch: "full" },
 ];
 
