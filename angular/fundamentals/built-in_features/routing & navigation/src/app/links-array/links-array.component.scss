@@ -1,0 +1,13 @@
+.btn {
+  color: white;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  padding: 1rem;
+  margin: 3rem;
+  box-shadow: inset 0px 0px 10px green;
+  border-radius: 1rem;
+
+  &:hover, &:active, &:focus {
+    color: green;
+  }
+}

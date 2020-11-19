@@ -29,16 +29,10 @@ export class AuthGuard implements CanActivate, CanLoad {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log('CanActivate:');
-    console.log(state);
-    console.log(next);
     return true;
   }
 
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log('CanLoad:');
-    console.log(route);
-    console.log(segments);
 
     const dialogRef = this.dialog.open(PassModalComponent, {width: '250px',
     data: {pass: ""}});

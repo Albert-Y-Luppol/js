@@ -17,6 +17,7 @@ const routes: Routes = [
     ]},
   {path: 'lazy', loadChildren: ()=> import('./lazy-load/lazy-load.module').then(m => m.LazyLoadModule)},
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule), canLoad: [AuthGuard] },
+  { path: 'links-array', loadChildren: () => import('./links-array/links-array.module').then(m => m.LinksArrayModule) },
   { path: "", redirectTo: "/introduction", pathMatch: "full" },
 ];
 

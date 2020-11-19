@@ -31,6 +31,11 @@ export class GetMainMenuItemsService {
         text: 'Auth',
         routerLink: '/auth',
 
+      },
+      {
+        text: 'Link parameters array',
+        routerLink: '/links-array',
+
       }
     ];
     return items;

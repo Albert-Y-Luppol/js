@@ -27,7 +27,7 @@ import {PassModalComponent} from "./auth/pass-modal/pass-modal.component";
     NestedComponent,
     AlexChildComponent,
     TomChildComponent,
-    PassModalComponent
+    PassModalComponent,
   ],
   imports: [
     BrowserModule,
