@@ -13,6 +13,12 @@ import { AlexChildComponent } from './nested/alex-child/alex-child.component';
 import { TomChildComponent } from './nested/tom-child/tom-child.component';
 import {AccessingQueryParamsModule} from "./accessing-query-params/accessing-query-params.module";
 import {WildcardModule} from "./wildcard/wildcard.module";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {AuthGuard} from "./auth/auth.guard";
+import {ValidateService} from "./auth/validate.service";
+import {PassModalComponent} from "./auth/pass-modal/pass-modal.component";
 
 
 @NgModule({
@@ -21,7 +27,7 @@ import {WildcardModule} from "./wildcard/wildcard.module";
     NestedComponent,
     AlexChildComponent,
     TomChildComponent,
-
+    PassModalComponent
   ],
   imports: [
     BrowserModule,
@@ -31,9 +37,15 @@ import {WildcardModule} from "./wildcard/wildcard.module";
     MatSidenavModule,
     FormsModule,
     AccessingQueryParamsModule,
-    WildcardModule
+    WildcardModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
   ],
   providers: [
+    AuthGuard,
+    ValidateService
   ],
   bootstrap: [AppComponent],
 })

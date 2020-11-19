@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/cdk/overlay-prebuilt.css';
 
 // variables
 $color__main: rgb(49, 187, 153);
@@ -87,3 +88,6 @@ p.text {
   letter-spacing: 0.1rem;
   line-height: 2;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
