@@ -9,7 +9,7 @@ import { AuthComponent } from './auth.component';
   declarations: [AuthComponent],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
   ]
 })
 export class AuthModule { }
