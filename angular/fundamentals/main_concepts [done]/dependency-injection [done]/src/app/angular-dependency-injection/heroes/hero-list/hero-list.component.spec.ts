@@ -16,7 +16,7 @@ describe('HeroListComponent', () => {
   ];
   const mockService = <HeroService>{ getHeroes: () => expctedHeroes };
 
-  it('should have heroes when HeroListComponent created', () => {
+  it('should have heroes when CrisisListComponent created', () => {
     const component = new HeroListComponent(mockService);
     expect(component.heroes.length).toEqual(expctedHeroes.length);
   })

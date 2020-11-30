@@ -38,5 +38,5 @@ let tup: [string, number, boolean] = ["Ray", 25, true];
 tup = ["Dom", 45, false];
 // tup = [24, 76, true];
 // tup[3] = 56;
-// tup[2] = 'Hero';
+// tup[2] = 'Crisis';
 tup[0] = "String";

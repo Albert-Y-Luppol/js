@@ -7,7 +7,7 @@ import { Logger } from './logger.service';
 @Injectable(
     // {
     // providedIn: 'root',
-    // useFactory: (logger: Logger, userService: UserService) => new HeroService(logger, userService.user.isAutorized),
+    // useFactory: (logger: Logger, userService: UserService) => new CrisisService(logger, userService.user.isAutorized),
     // deps: [Logger, UserService]
     // }
 )
