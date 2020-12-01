@@ -4,6 +4,7 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {CrisisService} from "../crisis.service";
 import {Observable} from "rxjs";
 import {switchMap} from "rxjs/operators";
+import {DialogService} from "../dialog.service";
 
 @Component({
   selector: 'app-hero-detail',
@@ -12,18 +13,27 @@ import {switchMap} from "rxjs/operators";
 })
 export class CrisisDetailComponent implements OnInit {
 
- public crisis$: Observable<Crisis>;
+ private crisis$: Observable<Crisis>;
+ public crisis: Crisis;
+ public editName: string;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private service: CrisisService
+    private service: CrisisService,
+    private dialogService: DialogService,
   ) { }
 
   ngOnInit() {
-    this.crisis$ = this.route.paramMap.pipe(
-      switchMap((params: ParamMap)=>this.service.getCrisis(params.get('id')))
-    );
+      this.route.data.subscribe((data: {crisis: Crisis})=>{
+        this.crisis = data.crisis;
+        this.editName = data.crisis.name;
+      });
+  }
+
+  canDeactivate():Observable<boolean> | boolean {
+    if(!this.crisis || this.crisis.name === this.editName) return true;
+    return this.dialogService.confirm('Discard changes?');
   }
 
   gotoCrises(crisis: Crisis){
@@ -31,6 +41,15 @@ export class CrisisDetailComponent implements OnInit {
       id: crisis ? crisis.id : null,
       junk: 'For fun!'
     }], {relativeTo: this.route});
+  }
+
+  cancel() {
+    this.gotoCrises(this.crisis);
+  }
+
+  save() {
+    this.crisis.name = this.editName;
+    this.gotoCrises(this.crisis);
   }
 
 }

@@ -1,13 +1,13 @@
-<h2>Crisis</h2>
-<div *ngIf="crisis$ | async as crisis">
-  <h2>{{crisis.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{crisis.id}}</div>
+<div *ngIf="crisis">
+  <h3>"{{ editName }}"</h3>
   <div>
-    <label>name:
-      <input [(ngModel)]="crisis.name" placeholder="name"/>
-    </label>
+    <label>Id: </label>{{ crisis.id }}</div>
+  <div>
+    <label>Name: </label>
+    <input [(ngModel)]="editName" placeholder="name"/>
   </div>
   <p>
-    <button (click)="gotoCrises(crisis)">Back</button>
+    <button (click)="cancel()">Cancel</button>
+    <button (click)="save()">Save</button>
   </p>
 </div>
