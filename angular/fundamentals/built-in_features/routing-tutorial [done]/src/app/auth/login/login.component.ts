@@ -36,7 +36,7 @@ export class LoginComponent {
           preserveFragment: true
         };
 
-        this.router.navigate([redirectUrl], navExtras);
+        this.router.navigate([redirectUrl], navExtras  );
       }
     })
   }
