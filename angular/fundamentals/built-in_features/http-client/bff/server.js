@@ -2,11 +2,21 @@ const http = require('http');
 const fs = require('fs');
 
 http.createServer((req, res)=>{
-  const { headers, method, url } = req;
+  const url = req.url.split('?')[0];
 
   res.setHeader('Access-Control-Allow-Origin', '*');
 
+  console.log(url);
+
   switch (url) {
+    case '/text':
+      res.statusCode = 200;
+      res.end("I'm plain text");
+      break;
+    case '/jsonp':
+      res.statusCode = 200;
+      res.end(JSON.stringify(['Yeah', 'Great', '!']))
+      break;
     case '/server-communication':
       res.statusCode = 200;
       res.end('Server Connected!')

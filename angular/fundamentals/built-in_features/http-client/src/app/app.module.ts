@@ -17,7 +17,7 @@ import { ProgressComponent } from './progress/progress.component';
 import { OptimizationComponent } from './optimization/optimization.component';
 import { SecurityComponent } from './security/security.component';
 import { TestingComponent } from './testing/testing.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
 import { ConfigComponent } from './requesting-data/config/config.component';
 
 
@@ -42,7 +42,8 @@ import { ConfigComponent } from './requesting-data/config/config.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     WildcardModule,
-    HttpClientModule
+    HttpClientModule,
+    HttpClientJsonpModule,
   ],
   bootstrap: [AppComponent],
 })
