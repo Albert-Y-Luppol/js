@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpResponse} from "@angular/common/http";
-import {Observable, of} from "rxjs";
-import {catchError, tap} from "rxjs/operators";
+import {Observable, of, throwError} from "rxjs";
+import {catchError, retry, tap} from "rxjs/operators";
 
 export interface Config {
   heroesUrl: string;
@@ -20,7 +20,9 @@ export class ConfigService {
   ) { }
 
   getConfig(){
-    return this.http.get<Config>(this.configUrl);
+    return this.http.get<Config>(this.configUrl).pipe(
+      catchError(this.handleError)
+    );
   }
 
   getFullResponseConfig(): Observable<HttpResponse<Config>>{
@@ -45,11 +47,30 @@ export class ConfigService {
     );
   }
 
+  getError(){
+    return this.http.get(this.baseUrl + '/error').pipe(
+      retry(3),
+      catchError(this.handleError)
+    );
+  }
+
   private handleHttpJsonpError(){
     return (err: HttpErrorResponse): Observable<any> => {
       console.log('Handled!');
       console.log(err);
       return of([]);
     }
+  }
+
+  private handleError(error: HttpErrorResponse){
+    if (error.error instanceof ErrorEvent) {
+      console.log("Client-side error: " + error.message);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`);
+    }
+
+    return throwError('Something bad happened, please, try again later!')
   }
 }

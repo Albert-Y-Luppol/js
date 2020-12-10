@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ConfigService} from "../requesting-data/config/config.service";
 
 @Component({
   selector: 'app-handling-errors',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HandlingErrorsComponent implements OnInit {
 
-  constructor() { }
+  res: any;
+
+  constructor(private configService:ConfigService) { }
 
   ngOnInit(): void {
+
+    this.configService.getError().subscribe(
+      res => {
+        this.res = res;
+      }
+    );
   }
 
 }
