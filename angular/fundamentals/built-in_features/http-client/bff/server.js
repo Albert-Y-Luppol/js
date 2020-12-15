@@ -8,27 +8,32 @@ http.createServer((req, res)=>{
 
   res.setHeader('Access-Control-Allow-Origin', '*');
 
-  console.log(req.method, url);
-
   switch (req.method){
     case 'OPTIONS':
-      console.log(req);
-      res.setHeader('Access-Control-Allow-Origin', req.url);
-      res.setHeader('Access-Control-Allow-Credentials', 'true');
-      res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-      res.setHeader('Access-Control-Max-Age', '604800');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
       res.end(0);
       break;
     case 'POST':
       if(req.headers.authorization === 'my-auth-token'){
         switch (url) {
           case '/hero':
-            const newHero = req.body;
-            if(newHero){
-              heroes.push(newHero);
-              console.log(newHero);
-            }
-            res.end("++");
+            let heroBuffer;
+            req.on('data',(chunk)=>{
+              if(chunk){
+                if(heroBuffer){
+                  heroBuffer += chunk;
+                } else {
+                  heroBuffer = chunk;
+                }
+              }
+            });
+
+            req.on('end', ()=>{
+              let hero = heroBuffer.toString('utf8');
+              heroes.push(hero);
+              console.log(hero);
+              res.end(hero);
+            })
             break;
           default:
             res.statusCode = 404;

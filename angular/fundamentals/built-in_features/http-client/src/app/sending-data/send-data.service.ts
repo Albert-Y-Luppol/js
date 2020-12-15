@@ -12,7 +12,7 @@ export interface Hero {
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    Authorization: 'my-auth-token'
+    authorization: 'my-auth-token'
   })
 }
 

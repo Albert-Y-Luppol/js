@@ -14,7 +14,10 @@ export class SendingDataComponent implements OnInit {
 
   ngOnInit(): void {
     const hero: Hero = {name: 'Tom', power: 10};
-    this.sendService.addHero(hero).subscribe((hero)=>this.heroes.push(hero));
+    this.sendService.addHero(hero).subscribe((hero)=>{
+      console.log(hero);
+      this.heroes.push(hero)
+    });
   }
 
 }
