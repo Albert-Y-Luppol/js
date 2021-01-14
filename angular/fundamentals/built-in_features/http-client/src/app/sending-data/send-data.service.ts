@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
-import {catchError} from "rxjs/operators";
+import {catchError, map} from "rxjs/operators";
 import {ConfigService} from "../requesting-data/config/config.service";
 
 export interface Hero {
@@ -33,6 +33,18 @@ export class SendDataService {
   addHero(hero: Hero): Observable<Hero>{
     return this.http.post(this.heroUrl, hero, httpOptions).pipe(
       catchError(this.handleError('addHero', hero))
+    );
+  }
+
+  getHeroes(){
+    return this.http.get<Hero[]>(this.heroUrl + 'es').pipe(
+      catchError(this.handleError('getHeroes', [])),
+    );
+  }
+
+  removeHero(name: string){
+    return this.http.delete<Hero>(this.heroUrl+`/${name}`, httpOptions).pipe(
+      catchError(this.handleError('removeHero', name)),
     );
   }
 

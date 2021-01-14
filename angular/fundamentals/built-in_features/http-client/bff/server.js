@@ -1,16 +1,16 @@
 const http = require('http');
 const fs = require('fs');
 
-const heroes = [];
+let heroes = [];
 
 http.createServer((req, res)=>{
   const url = req.url.split('?')[0];
-
   res.setHeader('Access-Control-Allow-Origin', '*');
 
   switch (req.method){
     case 'OPTIONS':
       res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+      res.setHeader('Access-Control-Allow-Methods', '*');
       res.end(0);
       break;
     case 'POST':
@@ -29,10 +29,10 @@ http.createServer((req, res)=>{
             });
 
             req.on('end', ()=>{
-              let hero = heroBuffer.toString('utf8');
+              let hero = JSON.parse(heroBuffer.toString('utf8'));
               heroes.push(hero);
               console.log(hero);
-              res.end(hero);
+              res.end(JSON.stringify(hero));
             })
             break;
           default:
@@ -44,18 +44,34 @@ http.createServer((req, res)=>{
         res.end(401);
       }
       break;
+    case 'DELETE':
+      if(req.headers.authorization === 'my-auth-token'){
+        const heroName = url.split('/').pop();
+        heroes = heroes.filter((hero)=>{
+          if(hero.name == heroName) {
+            return false;
+          }
+          return true;
+        });
+        console.clear();
+        console.log(heroes);
+        res.end(JSON.stringify(heroName));
+      } else {
+        res.end(401);
+      }
+      break;
     default:
       switch (url) {
+        case '/heroes':
+          res.end(JSON.stringify(heroes));
+          break;
         case '/text':
-          res.statusCode = 200;
           res.end("I'm plain text");
           break;
         case '/jsonp':
-          res.statusCode = 200;
           res.end(JSON.stringify(['Yeah', 'Great', '!']))
           break;
         case '/server-communication':
-          res.statusCode = 200;
           res.end('Server Connected!')
           break;
         case '/config':
@@ -64,7 +80,6 @@ http.createServer((req, res)=>{
               res.statusCode = 500;
               return res.end('Server Error');
             }
-            res.statusCode = 200;
             res.end(data);
           });
           break;

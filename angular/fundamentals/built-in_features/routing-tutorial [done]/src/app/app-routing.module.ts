@@ -18,13 +18,14 @@ const routes: Routes = [
     loadChildren: ()=>import('./admin/admin.module').then(m=>m.AdminModule),
     canLoad: [AuthGuard],
   },
+
+  {path: '', redirectTo: '/superheroes', pathMatch: 'full'},
+  {path: '**', component: PageNotFoundComponent},
   {
     path: 'compose',
     component: ComposeMessageComponent,
     outlet: 'popup'
   },
-  {path: '', redirectTo: '/superheroes', pathMatch: 'full'},
-  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

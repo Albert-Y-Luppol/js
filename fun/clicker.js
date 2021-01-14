@@ -51,9 +51,10 @@ const clicker = {
                     pause.start();
                 }, 53000);
             }
-        }, 10);
+        }, 1);
     },
     b(){
+        console.log('Entering team Betta!');
         let b = setInterval(()=>{
             let btn = document.body.querySelector('[data-style="JoinToBattleComponentStyle-buttonJoinRed JoinToBattleComponentStyle-buttonJoin"]');
             if(btn) {
@@ -63,6 +64,6 @@ const clicker = {
                     pause.start();
                 }, 53000);
             };
-        }, 10);
+        }, 1);
     }
 }

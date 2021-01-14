@@ -19,6 +19,7 @@ import { SecurityComponent } from './security/security.component';
 import { TestingComponent } from './testing/testing.component';
 import {HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
 import { ConfigComponent } from './requesting-data/config/config.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -36,15 +37,17 @@ import { ConfigComponent } from './requesting-data/config/config.component';
     TestingComponent,
     ConfigComponent,
   ],
-  imports: [
-    BrowserModule,
-    MatSidenavModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    WildcardModule,
-    HttpClientModule,
-    HttpClientJsonpModule,
-  ],
+    imports: [
+        BrowserModule,
+        MatSidenavModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        WildcardModule,
+        HttpClientModule,
+        HttpClientJsonpModule,
+        ReactiveFormsModule,
+      FormsModule
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
