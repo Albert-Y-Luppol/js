@@ -48,6 +48,13 @@ export class SendDataService {
     );
   }
 
+  updateHero(hero: Hero): Observable<Hero>{
+    return this.http.put<Hero>(this.heroUrl,hero, httpOptions).pipe(
+      catchError(this.handleError('updateHero', hero))
+    );
+  }
+
+
   private handleError(name: string, data: any){
     return (err, data: Observable<any>)=>{
       if(err instanceof ErrorEvent) {

@@ -20,6 +20,11 @@ export class SendingDataComponent implements OnInit {
     name: new FormControl(),
   });
 
+  public putForm = new FormGroup({
+    name: new FormControl(),
+    power: new FormControl(),
+  });
+
   constructor(private  sendService: SendDataService) { }
 
   ngOnInit(): void {
@@ -46,5 +51,14 @@ export class SendingDataComponent implements OnInit {
       });
     });
     this.deleteForm.reset();
+  }
+
+  public updateHero(){
+    this.sendService.updateHero({name: this.putForm.get('name').value, power: this.putForm.get('power').value}).subscribe(
+      (hero)=>{
+        this.heroes.find(curHero=>hero.name == curHero.name).power = hero.power;
+        this.putForm.reset();
+      }
+    )
   }
 }

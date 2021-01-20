@@ -67,3 +67,6 @@ const clicker = {
         }, 1);
     }
 }
+
+
+

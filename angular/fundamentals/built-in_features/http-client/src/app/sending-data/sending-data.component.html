@@ -18,3 +18,10 @@
   <input type="text" placeholder="Name" formControlName="name">
   <button (click)="removeHero()">Remove</button>
 </form>
+<h3>PUT</h3>
+<form [formGroup]="putForm">
+  <input type="text" placeholder="Name" formControlName="name">
+  <input type="number" placeholder="Power (num)" formControlName="power">
+  <button (click)="updateHero()">Update</button>
+</form>
+<hr>

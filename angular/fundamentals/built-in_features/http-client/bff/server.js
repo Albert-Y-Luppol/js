@@ -60,6 +60,41 @@ http.createServer((req, res)=>{
         res.end(401);
       }
       break;
+    case 'PUT':
+      if(req.headers.authorization === 'my-auth-token'){
+        if(url == '/hero'){
+          let heroBuffer;
+          req.on('data',(chunk)=>{
+            if(chunk){
+              if(heroBuffer){
+                heroBuffer += chunk;
+              } else {
+                heroBuffer = chunk;
+              }
+            }
+          });
+          req.on('end', ()=>{
+            let updatedHero = JSON.parse(heroBuffer.toString('utf8'));
+            let heroToUpdate = heroes.find(hero=>updatedHero.name == hero.name);
+            if(heroToUpdate){
+              heroToUpdate.power = updatedHero.power;
+              console.clear();
+              console.log(heroes);
+              res.end(JSON.stringify(heroToUpdate));
+            } else {
+              res.statusCode = 403;
+              res.end('No such hero!');
+            }
+          });
+        } else {
+          res.statusCode = 404;
+          res.end('Wrong Endpoint!');
+        }
+      } else {
+        res.statusCode = 401;
+        res.end('Not Autorized!');
+      }
+      break;
     default:
       switch (url) {
         case '/heroes':
