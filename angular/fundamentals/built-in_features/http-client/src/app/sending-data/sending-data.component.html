@@ -25,3 +25,13 @@
   <button (click)="updateHero()">Update</button>
 </form>
 <hr>
+<button (click)="updateToken()">Update token</button>
+
+<hr>
+<form [formGroup] = "searchForm">
+  <input type="text" placeholder="Search" formControlName = "creds">
+  <button (click)="findHeroes()">Find</button>
+</form>
+<ul *ngIf="foundHeroes">
+  <li *ngFor="let hero of foundHeroes">{{hero.name}}: {{hero.power}}</li>
+</ul>

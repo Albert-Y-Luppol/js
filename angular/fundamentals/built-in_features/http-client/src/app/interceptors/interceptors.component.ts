@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {InterceptorToggleService} from "./interceptor-toggle.service";
 
 @Component({
   selector: 'app-interceptors',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InterceptorsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public interceptorsToggle: InterceptorToggleService
+  ) { }
 
   ngOnInit(): void {
   }
+
+
 
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse, HttpResponse} from "@angular/common/http";
+import {HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse} from "@angular/common/http";
 import {Observable, of, throwError} from "rxjs";
 import {catchError, retry, tap} from "rxjs/operators";
 
@@ -15,6 +15,14 @@ export class ConfigService {
 
   baseUrl = 'http://192.168.0.173:3000';
   configUrl = this.baseUrl + '/config';
+
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      "Authorization": 'my-auth-token'
+    })
+  }
+
   constructor(
     private http: HttpClient
   ) { }
@@ -52,6 +60,16 @@ export class ConfigService {
       retry(3),
       catchError(this.handleError)
     );
+  }
+
+  updateToken(){
+    return this.http.get<string>(this.baseUrl + '/update-token', this.httpOptions).pipe(
+      retry(3),
+      catchError(this.handleError)
+    ).subscribe((token)=>{
+      this.httpOptions.headers = this.httpOptions.headers.set('Authorization', String(token));
+      console.log('New Token: ' + token);
+    });;
   }
 
   private handleHttpJsonpError(){

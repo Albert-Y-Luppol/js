@@ -17,9 +17,11 @@ import { ProgressComponent } from './progress/progress.component';
 import { OptimizationComponent } from './optimization/optimization.component';
 import { SecurityComponent } from './security/security.component';
 import { TestingComponent } from './testing/testing.component';
-import {HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
+import { HttpClientJsonpModule, HttpClientModule} from "@angular/common/http";
 import { ConfigComponent } from './requesting-data/config/config.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {httpInterceptorProviders} from "./interceptors";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 
 @NgModule({
@@ -37,17 +39,19 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     TestingComponent,
     ConfigComponent,
   ],
-    imports: [
-        BrowserModule,
-        MatSidenavModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-        WildcardModule,
-        HttpClientModule,
-        HttpClientJsonpModule,
-        ReactiveFormsModule,
-      FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    MatSidenavModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    WildcardModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatSlideToggleModule,
+  ],
   bootstrap: [AppComponent],
+  providers:[httpInterceptorProviders]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 import {Observable, throwError} from "rxjs";
 import {catchError, map} from "rxjs/operators";
 import {ConfigService} from "../requesting-data/config/config.service";
@@ -7,13 +7,6 @@ import {ConfigService} from "../requesting-data/config/config.service";
 export interface Hero {
   name: string;
   power: number;
-}
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    authorization: 'my-auth-token'
-  })
 }
 
 @Injectable({
@@ -31,27 +24,33 @@ export class SendDataService {
   }
 
   addHero(hero: Hero): Observable<Hero>{
-    return this.http.post(this.heroUrl, hero, httpOptions).pipe(
+    return this.http.post(this.heroUrl, hero, this.config.httpOptions).pipe(
       catchError(this.handleError('addHero', hero))
     );
   }
 
-  getHeroes(){
-    return this.http.get<Hero[]>(this.heroUrl + 'es').pipe(
+  getHeroes(creds?: string): Observable<Hero[]>{
+    const options = creds ?
+      {params: new HttpParams().set('creds', creds)} : {};
+    return this.http.get<Hero[]>(this.heroUrl + 'es', options).pipe(
       catchError(this.handleError('getHeroes', [])),
     );
   }
 
   removeHero(name: string){
-    return this.http.delete<Hero>(this.heroUrl+`/${name}`, httpOptions).pipe(
+    return this.http.delete<Hero>(this.heroUrl+`/${name}`, this.config.httpOptions).pipe(
       catchError(this.handleError('removeHero', name)),
     );
   }
 
   updateHero(hero: Hero): Observable<Hero>{
-    return this.http.put<Hero>(this.heroUrl,hero, httpOptions).pipe(
+    return this.http.put<Hero>(this.heroUrl,hero, this.config.httpOptions).pipe(
       catchError(this.handleError('updateHero', hero))
     );
+  }
+
+  updateToken(){
+    this.config.updateToken();
   }
 
 

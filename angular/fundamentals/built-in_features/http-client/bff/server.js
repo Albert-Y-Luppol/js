@@ -1,10 +1,14 @@
 const http = require('http');
 const fs = require('fs');
+const urlPackage = require('url');
 
 let heroes = [];
 
+let token = 'my-auth-token';
+
 http.createServer((req, res)=>{
   const url = req.url.split('?')[0];
+  const params = urlPackage.parse(req.url, true).query;
   res.setHeader('Access-Control-Allow-Origin', '*');
 
   switch (req.method){
@@ -14,7 +18,7 @@ http.createServer((req, res)=>{
       res.end(0);
       break;
     case 'POST':
-      if(req.headers.authorization === 'my-auth-token'){
+      if(req.headers.authorization === token){
         switch (url) {
           case '/hero':
             let heroBuffer;
@@ -45,7 +49,7 @@ http.createServer((req, res)=>{
       }
       break;
     case 'DELETE':
-      if(req.headers.authorization === 'my-auth-token'){
+      if(req.headers.authorization === token){
         const heroName = url.split('/').pop();
         heroes = heroes.filter((hero)=>{
           if(hero.name == heroName) {
@@ -61,7 +65,7 @@ http.createServer((req, res)=>{
       }
       break;
     case 'PUT':
-      if(req.headers.authorization === 'my-auth-token'){
+      if(req.headers.authorization === token){
         if(url == '/hero'){
           let heroBuffer;
           req.on('data',(chunk)=>{
@@ -97,7 +101,12 @@ http.createServer((req, res)=>{
       break;
     default:
       switch (url) {
-        case '/heroes':
+        case '/heroes':;
+          if(params.creds){
+            return res.end(JSON.stringify(heroes.filter(hero=>{
+              return hero.name.toLowerCase().includes(params.creds.toLowerCase());
+            })));
+          }
           res.end(JSON.stringify(heroes));
           break;
         case '/text':
@@ -108,6 +117,15 @@ http.createServer((req, res)=>{
           break;
         case '/server-communication':
           res.end('Server Connected!')
+          break;
+        case '/update-token':
+          if(req.headers.authorization === token){
+            token = String(Math.random());
+            res.end(token);
+          } else {
+            res.statusCode = 401;
+            res.end('Access denied!')
+          }
           break;
         case '/config':
           fs.readFile('../src/assets/config.json', 'utf8', (err, data)=>{

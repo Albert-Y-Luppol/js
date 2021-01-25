@@ -10,6 +10,7 @@ import {AbstractControl, FormControl, FormGroup} from "@angular/forms";
 export class SendingDataComponent implements OnInit {
 
   heroes: Hero[];
+  foundHeroes: Hero[];
 
   public postForm = new FormGroup({
     name: new FormControl(),
@@ -24,6 +25,10 @@ export class SendingDataComponent implements OnInit {
     name: new FormControl(),
     power: new FormControl(),
   });
+
+  public searchForm = new FormGroup({
+    creds: new FormControl()
+  })
 
   constructor(private  sendService: SendDataService) { }
 
@@ -60,5 +65,16 @@ export class SendingDataComponent implements OnInit {
         this.putForm.reset();
       }
     )
+  }
+
+  public updateToken(){
+    this.sendService.updateToken();
+  }
+
+  public findHeroes(){
+    this.sendService.getHeroes(this.searchForm.get('creds').value).subscribe((heroes)=>{
+      this.foundHeroes = heroes;
+      this.searchForm.reset();
+    })
   }
 }

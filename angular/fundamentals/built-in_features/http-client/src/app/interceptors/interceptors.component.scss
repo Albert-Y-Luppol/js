@@ -1,0 +1,8 @@
+ul{
+  list-style: none;
+  user-select: none;
+
+  & li {
+    padding: 1rem;
+  }
+}
