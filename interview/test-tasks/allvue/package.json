@@ -1,0 +1,30 @@
+{
+  "name": "test-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "eslint .",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Albert-Y-Luppol/node.git"
+  },
+  "author": "Albert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Albert-Y-Luppol/node/issues"
+  },
+  "homepage": "https://github.com/Albert-Y-Luppol/node#readme",
+  "dev-dependencies": {
+    "eslint": "^7.18.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "rxjs": "^6.6.3",
+    "webpack": "^5.19.0",
+    "webpack-cli": "^4.4.0"
+  }
+}

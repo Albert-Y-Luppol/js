@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <script src="https://kit.fontawesome.com/617acb0166.js" crossorigin="anonymous"></script>
+    <title>FIFO Investing</title>
+</head>
+
+<body>
+
+    <form method="post" id="stockForm">
+        <label for="operation">Choose market action:</label>
+        <select name="operations" id="operation">
+            <option value="buy">Buy</option>
+            <option value="sell">Sell</option>
+        </select>
+        <br>
+        <input placeholder="Amount" id="amount">
+        <br>
+        <input placeholder="Price per stock" id="price">
+        <br>
+        <button type="submit">Submit Operation</button>
+    </form>
+
+    <ul id="history">
+    </ul>
+
+    <script src="dist/main.js"></script>
+
+</body>
+
+</html>
