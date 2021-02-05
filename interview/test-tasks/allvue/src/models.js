@@ -2,9 +2,10 @@ import { of } from 'rxjs';
 import { db } from './db';
 
 export class Lot{
-   constructor(amount, pricePerShare){
+   constructor(amount, pricePerShare, date){
     this.amount = amount;
     this.pricePerShare = pricePerShare;
+    this.date = date;
   }
 }
 
@@ -20,62 +21,60 @@ export class SharesLots{
 
   buy(lot){
     this.lots.push(lot);
-    this.costBasisPerRemainShare = (this.costBasisPerRemainShare * this.sharesLeft + lot.amount * lot.pricePerShare) /
-      (this.sharesLeft + lot.amount);
+    const spendMoneyForRemainPortfolio = this.costBasisPerRemainShare * this.sharesLeft;
+    const spendMoneyForNewLot = lot.amount * lot.pricePerShare;
     this.sharesLeft += lot.amount;
+    this.costBasisPerRemainShare = (spendMoneyForRemainPortfolio + spendMoneyForNewLot) / this.sharesLeft;
     return this;
   }
 
+  sell(amountToSell, pricePerShare) {
+    let receivedMoneyForSoldShares = 0;
+    let soldShares = 0;
+    let profit = 0;
+    for (const lot of this.lots){
+      if(!amountToSell){
+        const spendMoneyForRemainPortfolio = this.costBasisPerRemainShare * this.sharesLeft;
+        const spendMoneyForSoldPortfolio = this.costBasisPerSoldShare * this.sharesSold;
+        const spendMoneyForSoldShares = receivedMoneyForSoldShares - profit;
 
+        this.totalProfit += profit;
+        this.sharesLeft -= soldShares;
+        this.sharesSold += soldShares;
+        this.costBasisPerRemainShare = (spendMoneyForRemainPortfolio - spendMoneyForSoldShares) / this.sharesLeft;
+        this.costBasisPerSoldShare = (spendMoneyForSoldPortfolio + spendMoneyForSoldShares) / this.sharesSold;
+
+        return this;
+      }
+
+      const lotToSell = this.lots.pop();
+      if(lotToSell.amount > amountToSell){
+        const gotMoney = amountToSell * pricePerShare;
+        const spendMoney = amountToSell * lotToSell.pricePerShare;
+
+        profit += gotMoney - spendMoney;
+        soldShares += amountToSell;
+        receivedMoneyForSoldShares += gotMoney;
+        lotToSell.amount -= amountToSell;
+        amountToSell = 0;
+
+        this.lots.push(lotToSell);
+      } else {
+        const gotMoney = lotToSell.amount * pricePerShare;
+        const spendMoney = lotToSell.amount * lotToSell.pricePerShare;
+
+        profit += gotMoney - spendMoney;
+        soldShares += lotToSell.amount;
+        receivedMoneyForSoldShares += gotMoney;
+        amountToSell -= lotToSell.amount;
+      }
+    }
+  }
 
   sellFIFO(amountToSell, pricePerShare){
-    if(this.sharesLeft >= amountToSell){
-      while(this.lots[0].amount < amountToSell){
-        amountToSell -= this.lots[0].amount;
-        this.sellAllLot(this.lots.splice(-1), pricePerShare)
-      }
-      this.sellFromLot(this.lots[this.lots.length-1], amountToSell, pricePerShare);
-      return true;
-    } else {
-      return false;
-    }
+      this.lots = this.lots.filter((lotA, lotB) => lotB.date - lotA.date);
+      return this.sell(amountToSell, pricePerShare);
   }
-
-  sellFILO(amountToSell, pricePerShare){
-    if(this.sharesLeft >= amountToSell){
-      while(this.lots[0].amount < amountToSell){
-        amountToSell -= this.lots[0].amount;
-        this.sellAllLot(this.lots.splice(0,1), pricePerShare)
-      }
-      this.sellFromLot(this.lots[0], amountToSell, pricePerShare);
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  sellAllLot(lot, pricePerShare){
-    this.costBasisPerSoldShare = (this.costBasisPerSoldShare * this.sharesSold + lot.pricePerShare * lot.amount) /
-      (this.sharesSold + lot.amount);
-    this.costBasisPerRemainShare = (this.costBasisPerRemainShare * this.sharesLeft - lot.amount * lot.pricePerShare) /
-      (this.sharesLeft - lot.amount);
-    this.sharesSold += lot.amount;
-    this.totalProfit += lot.amount * pricePerShare - lot.amount * lot.pricePerShare;
-    this.sharesLeft -= lot.amount;
-  }
-
-  sellFromLot(lot, amount, pricePerShare){
-    this.costBasisPerSoldShare = (this.costBasisPerSoldShare * this.sharesSold + lot.pricePerShare * amount) /
-      (this.sharesSold + amount);
-    this.costBasisPerRemainShare = (this.costBasisPerRemainShare * this.sharesLeft - amount * lot.pricePerShare) /
-      (this.sharesLeft - amount);
-    this.sharesSold += amount;
-    this.totalProfit += amount * pricePerShare - amount * lot.pricePerShare;
-    this.sharesLeft -= amount;
-
-    lot.amount -= amount;
-  }
-
 }
 
 export class DB{

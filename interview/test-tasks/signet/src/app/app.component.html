@@ -1,0 +1,37 @@
+<main class="container">
+  <form>
+  <mat-form-field>
+    <mat-label>Year</mat-label>
+    <input type="number" matInput [formControl]="year">
+  </mat-form-field><br>
+  <mat-form-field>
+    <mat-label>Genre</mat-label>
+    <mat-select [formControl]="genre" multiple>
+      <mat-option *ngFor="let genre of genres" [value]="genre">{{genre}}</mat-option>
+    </mat-select>
+  </mat-form-field><br>
+  <button (click)="searchMovies()" mat-raised-button>Search</button>
+  <div *ngIf="submitedFlag" class="total">Totally found: {{movies.length}}</div>
+</form>
+
+  <table *ngIf="movies.length > 0" mat-table [dataSource]="movies" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Title </th>
+    <td mat-cell *matCellDef="let movie"> {{movie.title}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="genres">
+    <th mat-header-cell *matHeaderCellDef> Genres </th>
+    <td mat-cell *matCellDef="let movie"> {{movie.genres | genres}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="year">
+    <th mat-header-cell *matHeaderCellDef> Year </th>
+    <td mat-cell *matCellDef="let movie"> {{movie.year}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['title', 'genres', 'year']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['title', 'genres', 'year'];"></tr>
+</table>
+</main>
