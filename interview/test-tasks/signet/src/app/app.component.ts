@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, Validators} from "@angular/forms";
+import {FormControl} from "@angular/forms";
 import {DataService} from "./data.service";
 import {yearValidator} from "./year-validator.directive";
 import {HttpParams} from "@angular/common/http";
